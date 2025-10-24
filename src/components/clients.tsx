@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { cn } from "@/lib/utils";
 
 const clientLogos = PlaceHolderImages.filter(img => img.id.startsWith('client-'));
-const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
+
+// Duplicamos los logos para asegurar un bucle infinito y suave
+const duplicatedLogos = [...clientLogos, ...clientLogos];
 
 export default function Clients() {
   return (
