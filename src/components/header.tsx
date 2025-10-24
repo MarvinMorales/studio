@@ -1,29 +1,60 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
-import { Camera, Menu } from "lucide-react";
+import { Camera, Menu, Search, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { cn } from "@/lib/utils";
+import { Input } from "./ui/input";
+import Image from "next/image";
+import { Product } from "@/app/category/[slug]/page";
+
+// Simulación de productos para la búsqueda. En una aplicación real, esto vendría de una API.
+const allProducts: Product[] = [
+    { id: 1, name: 'Producto 1', description: 'Descripción detallada y extensa del producto 1.', images: ['https://picsum.photos/seed/p1/800/600'], rating: 4.5 },
+    { id: 2, name: 'Producto 2', description: 'Esta es una descripción más corta para el producto 2.', images: ['https://picsum.photos/seed/p2/800/600'], rating: 4.8 },
+    { id: 3, name: 'Producto 3', description: 'Otra descripción larga para el producto 3.', images: ['https://picsum.photos/seed/p3/800/600'], rating: 4.2 },
+    { id: 4, name: 'Cámara IP Domo', description: 'Cámara de seguridad tipo domo para interiores.', images: ['https://picsum.photos/seed/p4/800/600'], rating: 5.0 },
+    { id: 5, name: 'Servidor de Almacenamiento', description: 'Servidor NAS para almacenamiento de video vigilancia.', images: ['https://picsum.photos/seed/p5/800/600'], rating: 3.9 },
+    { id: 6, name: 'Lector RFID', description: 'Lector de tarjetas RFID para control de acceso.', images: ['https://picsum.photos/seed/p6/800/600'], rating: 4.6 },
+];
 
 const navLinks = [
-  { href: "#categories", label: "Categorías" },
-  { href: "#news", label: "Novedades" },
-  { href: "#video", label: "Video" },
-  { href: "#success-stories", label: "Casos de Éxito" },
+  { href: "/", label: "Inicio" },
+  { href: "/#categories", label: "Soluciones integrales" },
 ];
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  const filteredProducts = useMemo(() => {
+    if (searchQuery.length < 2) return [];
+    return allProducts.filter(product =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [searchQuery]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target as Node)) {
+        setIsSearchFocused(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   return (
@@ -43,8 +74,56 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+        
         <div className="flex items-center gap-2">
-          <Button className="hidden sm:flex">Contacto</Button>
+          <div ref={searchContainerRef} className="relative hidden sm:block">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Buscar productos..."
+                className="pl-10 w-40 md:w-64"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setIsSearchFocused(true)}
+              />
+              {searchQuery && (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7"
+                  onClick={() => setSearchQuery('')}
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              )}
+            </div>
+            {isSearchFocused && searchQuery.length > 1 && (
+              <div className="absolute top-full mt-2 w-full md:w-96 max-h-80 overflow-y-auto rounded-lg border bg-card shadow-lg z-10">
+                {filteredProducts.length > 0 ? (
+                  <div className="p-2">
+                    {filteredProducts.map(product => (
+                      <Link
+                        key={product.id}
+                        href="#" // Debería ir a la página del producto
+                        className="flex items-center gap-4 p-2 rounded-md hover:bg-muted"
+                        onClick={() => {
+                          setIsSearchFocused(false);
+                          setSearchQuery('');
+                        }}
+                      >
+                        <Image src={product.images[0]} alt={product.name} width={40} height={40} className="rounded-md object-cover" />
+                        <span className="text-sm font-medium">{product.name}</span>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="p-4 text-sm text-center text-muted-foreground">No se encontraron productos.</p>
+                )}
+              </div>
+            )}
+          </div>
+          <Button>Contacto</Button>
           <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -70,8 +149,14 @@ export default function Header() {
                         {link.label}
                       </Link>
                     ))}
+                    <Link
+                      href="#"
+                      className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      Contacto
+                    </Link>
                   </nav>
-                   <Button className="mt-8">Contacto</Button>
                 </div>
               </SheetContent>
             </Sheet>
