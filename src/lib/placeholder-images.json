@@ -19,6 +19,12 @@
       "imageHint": "smart city"
     },
     {
+      "id": "hero-4",
+      "description": "Biometric security system scanning a fingerprint",
+      "imageUrl": "https://images.unsplash.com/photo-1581282869384-82d2a45d06b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80",
+      "imageHint": "biometric security"
+    },
+    {
       "id": "category-ip-cameras",
       "description": "Cámaras IP",
       "imageUrl": "https://images.unsplash.com/photo-1751134519342-2870cf99c5bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpcCUyMGNhbWVyYXxlbnwwfHx8fDE3NjEzMjkzNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
@@ -105,7 +111,7 @@
     {
       "id": "insta-9",
       "description": "Instagram post 9",
-      "imageUrl": "https://images.unsplash.com/photo-1600711416054-ef1cfc2c1dba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNobm9sb2d5JTIwaW5ub3ZhdGlvbnxlbnwwfHx8fDE3NjEzMjkzNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1600711416054-ef1cfc2c1dba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNobm9sb2d5JTIwaW5ub3ZhdGlvbnxlbnwwfHx8fDE3NjEzMjkzNzN8MA&ixlib-rb-4.1.0&q=80&w=1080",
       "imageHint": "technology innovation"
     },
     {
@@ -201,7 +207,7 @@
     {
       "id": "client-6",
       "description": "Logo de Artefacta",
-      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjEyNTk0NzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NjEyNTk0NzN8MA&ixlibrb-4.1.0&q=80&w=1080",
       "imageHint": "company logo"
     },
     {
