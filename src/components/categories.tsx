@@ -13,7 +13,7 @@ export default function Categories() {
             Explora nuestra amplia gama de productos de seguridad de alta tecnología.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {categories.map((category) => (
             <div key={category.id} className="group relative rounded-lg overflow-hidden h-64 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
               <Image
@@ -21,7 +21,7 @@ export default function Categories() {
                 alt={category.description}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 data-ai-hint={category.imageHint}
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-primary/60 transition-colors duration-300" />

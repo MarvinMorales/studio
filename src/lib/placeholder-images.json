@@ -43,6 +43,18 @@
       "imageHint": "rfid reader"
     },
     {
+      "id": "category-access-control",
+      "description": "Control de Acceso",
+      "imageUrl": "https://images.unsplash.com/photo-1562088237-1153e001b658?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80",
+      "imageHint": "access control"
+    },
+    {
+      "id": "category-video-analytics",
+      "description": "Analítica de Video",
+      "imageUrl": "https://images.unsplash.com/photo-1617903233842-3b4a2c070e9a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1080&q=80",
+      "imageHint": "video analytics"
+    },
+    {
       "id": "insta-1",
       "description": "Instagram post 1",
       "imageUrl": "https://images.unsplash.com/photo-1646621407507-295c5f6ae23b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWNoJTIwcHJvZHVjdHxlbnwwfHx8fDE3NjEyOTQ3Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
