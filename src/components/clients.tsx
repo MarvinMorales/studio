@@ -27,14 +27,14 @@ export default function Clients() {
           {duplicatedLogos.map((logo, index) => (
             <div
               key={`${logo.id}-${index}`}
-              className="flex-shrink-0 mx-4"
+              className="flex-shrink-0 mx-6"
             >
-              <div className="bg-card rounded-full p-3 shadow-md w-28 h-28 flex items-center justify-center">
+              <div className="bg-card rounded-full p-2 shadow-md w-24 h-24 flex items-center justify-center overflow-hidden">
                 <Image
                   src={logo.imageUrl}
                   alt={logo.description}
-                  width={100}
-                  height={50}
+                  width={80}
+                  height={40}
                   className="object-contain"
                   data-ai-hint={logo.imageHint}
                 />
