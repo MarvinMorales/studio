@@ -1,21 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import Autoplay from "embla-carousel-autoplay";
+import { cn } from "@/lib/utils";
 
 const clientLogos = PlaceHolderImages.filter(img => img.id.startsWith('client-'));
+const duplicatedLogos = [...clientLogos, ...clientLogos, ...clientLogos, ...clientLogos];
 
 export default function Clients() {
-  const duplicatedLogos = [...clientLogos, ...clientLogos];
-
   return (
-    <section id="clients" className="py-16 md:py-24 bg-primary/10">
+    <section id="clients" className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
           Nuestros Clientes
@@ -24,43 +18,29 @@ export default function Clients() {
           Agradecemos por la confianza en nuestros sistemas
         </p>
       </div>
-      <div className="w-full mt-12">
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          plugins={[
-            Autoplay({
-              delay: 2000,
-              stopOnInteraction: false,
-              stopOnMouseEnter: true,
-            }),
-          ]}
-          className="w-full"
-        >
-          <CarouselContent className="-ml-4">
-            {duplicatedLogos.map((logo, index) => (
-              <CarouselItem
-                key={`${logo.id}-${index}`}
-                className="pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6 xl:basis-1/8 flex items-center justify-center"
-              >
-                <div className="p-1">
-                  <div className="bg-white rounded-full p-4 shadow-md w-32 h-32 flex items-center justify-center">
-                    <Image
-                      src={logo.imageUrl}
-                      alt={logo.description}
-                      width={140}
-                      height={60}
-                      className="object-contain"
-                      data-ai-hint={logo.imageHint}
-                    />
-                  </div>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+      <div
+        className="relative mt-12 w-full overflow-hidden"
+        style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
+      >
+        <div className="flex animate-scroll">
+          {duplicatedLogos.map((logo, index) => (
+            <div
+              key={`${logo.id}-${index}`}
+              className="flex-shrink-0 mx-4"
+            >
+              <div className="bg-card rounded-full p-3 shadow-md w-28 h-28 flex items-center justify-center">
+                <Image
+                  src={logo.imageUrl}
+                  alt={logo.description}
+                  width={100}
+                  height={50}
+                  className="object-contain"
+                  data-ai-hint={logo.imageHint}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
