@@ -1,3 +1,160 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "Modern data center with glowing servers",
+      "imageUrl": "https://images.unsplash.com/photo-1580106815433-a5b1d1d53d85?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxkYXRhJTIwY2VudGVyfGVufDB8fHx8MTc2MTMxMTc5OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "data center"
+    },
+    {
+      "id": "hero-2",
+      "description": "Security operations center with multiple monitors",
+      "imageUrl": "https://images.unsplash.com/photo-1758291293507-777a405ad492?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzZWN1cml0eSUyMG9wZXJhdGlvbnN8ZW58MHx8fHwxNzYxMzI5MzczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "security operations"
+    },
+    {
+      "id": "hero-3",
+      "description": "Smart city with network connections visualized",
+      "imageUrl": "https://images.unsplash.com/photo-1473042904451-00171c69419d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzbWFydCUyMGNpdHl8ZW58MHx8fHwxNzYxMzE5NDkwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smart city"
+    },
+    {
+      "id": "category-ip-cameras",
+      "description": "Cámaras IP",
+      "imageUrl": "https://images.unsplash.com/photo-1751134519342-2870cf99c5bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxpcCUyMGNhbWVyYXxlbnwwfHx8fDE3NjEzMjkzNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ip camera"
+    },
+    {
+      "id": "category-security-cameras",
+      "description": "Cámaras de Seguridad",
+      "imageUrl": "https://images.unsplash.com/photo-1722488359737-7a9b8a8436c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzZWN1cml0eSUyMGNhbWVyYXxlbnwwfHx8fDE3NjEzMDk5MTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "security camera"
+    },
+    {
+      "id": "category-servers",
+      "description": "Servidores",
+      "imageUrl": "https://images.unsplash.com/photo-1594915440248-1e419eba6611?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzZXJ2ZXIlMjByYWNrfGVufDB8fHx8MTc2MTI1MDc5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "server rack"
+    },
+    {
+      "id": "category-rfid-readers",
+      "description": "Lectores RFID",
+      "imageUrl": "https://images.unsplash.com/photo-1515806632622-e6b9358ef804?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyZmlkJTIwcmVhZGVyfGVufDB8fHx8MTc2MTMyOTM3M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rfid reader"
+    },
+    {
+      "id": "insta-1",
+      "description": "Instagram post 1",
+      "imageUrl": "https://images.unsplash.com/photo-1646621407507-295c5f6ae23b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx0ZWNoJTIwcHJvZHVjdHxlbnwwfHx8fDE3NjEyOTQ3Nzh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech product"
+    },
+    {
+      "id": "insta-2",
+      "description": "Instagram post 2",
+      "imageUrl": "https://images.unsplash.com/photo-1750558222639-3573a142508d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvZmZpY2UlMjBzZWN1cml0eXxlbnwwfHx8fDE3NjEzMjkzNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office security"
+    },
+    {
+      "id": "insta-3",
+      "description": "Instagram post 3",
+      "imageUrl": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjBvZmZpY2V8ZW58MHx8fHwxNzYxMjMyMDc3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern office"
+    },
+    {
+      "id": "insta-4",
+      "description": "Instagram post 4",
+      "imageUrl": "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzZWN1cml0eSUyMHN5c3RlbXxlbnwwfHx8fDE3NjEzMjkzNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "security system"
+    },
+    {
+      "id": "insta-5",
+      "description": "Instagram post 5",
+      "imageUrl": "https://images.unsplash.com/photo-1626427403459-4425cbabdc3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWNjZXNzJTIwY29udHJvbHxlbnwwfHx8fDE3NjEzMjkzNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "access control"
+    },
+    {
+      "id": "insta-6",
+      "description": "Instagram post 6",
+      "imageUrl": "https://images.unsplash.com/photo-1667984550719-1c44d1d07ed7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bmV0d29yayUyMHNlcnZlcnxlbnwwfHx8fDE3NjEyMjU4NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "network server"
+    },
+    {
+      "id": "insta-7",
+      "description": "Instagram post 7",
+      "imageUrl": "https://images.unsplash.com/photo-1686678652918-8b235f8b9415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjY3R2JTIwY2FtZXJhfGVufDB8fHx8MTc2MTMyOTM3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cctv camera"
+    },
+    {
+      "id": "insta-8",
+      "description": "Instagram post 8",
+      "imageUrl": "https://images.unsplash.com/photo-1519558260268-cde7e03a0152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzbWFydCUyMGhvbWV8ZW58MHx8fHwxNzYxMjQyOTc4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "smart home"
+    },
+    {
+      "id": "insta-9",
+      "description": "Instagram post 9",
+      "imageUrl": "https://images.unsplash.com/photo-1600711416054-ef1cfc2c1dba?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWNobm9sb2d5JTIwaW5ub3ZhdGlvbnxlbnwwfHx8fDE3NjEzMjkzNzN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "technology innovation"
+    },
+    {
+      "id": "insta-10",
+      "description": "Instagram post 10",
+      "imageUrl": "https://images.unsplash.com/photo-1620825937374-87fc7d6bddc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjeWJlciUyMHNlY3VyaXR5fGVufDB8fHx8MTc2MTI5OTg0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cyber security"
+    },
+    {
+      "id": "insta-11",
+      "description": "Instagram post 11",
+      "imageUrl": "https://images.unsplash.com/photo-1582587627364-a3393fa3b9b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx3b3JrcGxhY2UlMjBzYWZldHl8ZW58MHx8fHwxNzYxMjYwMDg3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "workplace safety"
+    },
+    {
+      "id": "insta-12",
+      "description": "Instagram post 12",
+      "imageUrl": "https://images.unsplash.com/photo-1564457461758-8ff96e439e83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxzZXJ2ZXIlMjByb29tfGVufDB8fHx8MTc2MTI1Mzk0N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "server room"
+    },
+    {
+      "id": "insta-13",
+      "description": "Instagram post 13",
+      "imageUrl": "https://images.unsplash.com/photo-1689103722266-1f2f837145e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxiaW9tZXRyaWMlMjBhY2Nlc3N8ZW58MHx8fHwxNzYxMzI5Mzc0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "biometric access"
+    },
+    {
+      "id": "insta-14",
+      "description": "Instagram post 14",
+      "imageUrl": "https://images.unsplash.com/photo-1589935447067-5531094415d1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzZWN1cml0eSUyMGNhbWVyYXxlbnwwfHx8fDE3NjEzMDk5MTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "security camera"
+    },
+    {
+      "id": "insta-15",
+      "description": "Instagram post 15",
+      "imageUrl": "https://images.unsplash.com/photo-1603025832120-e0b4ac855d3d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwaGFyZHdhcmV8ZW58MHx8fHwxNzYxMzI5MzczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tech hardware"
+    },
+    {
+      "id": "success-1",
+      "description": "Edificio Corporativo",
+      "imageUrl": "https://images.unsplash.com/photo-1549757521-4160565ff3de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxvZmZpY2UlMjBidWlsZGluZ3xlbnwwfHx8fDE3NjEyNzAxMTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office building"
+    },
+    {
+      "id": "success-2",
+      "description": "Centro Logístico",
+      "imageUrl": "https://images.unsplash.com/photo-1714627798569-b3e36d409c4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx3YXJlaG91c2UlMjBsb2dpc3RpY3N8ZW58MHx8fHwxNzYxMjUwODg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "warehouse logistics"
+    },
+    {
+      "id": "success-3",
+      "description": "Tienda Minorista",
+      "imageUrl": "https://images.unsplash.com/photo-1567958451986-2de427a4a0be?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyZXRhaWwlMjBzdG9yZXxlbnwwfHx8fDE3NjEzMjkzNzR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "retail store"
+    },
+    {
+      "id": "success-4",
+      "description": "Campus Universitario",
+      "imageUrl": "https://images.unsplash.com/photo-1590579491624-f98f36d4c763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzfGVufDB8fHx8MTc2MTIwNjg5NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "university campus"
+    }
+  ]
 }
