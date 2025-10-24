@@ -1,6 +1,6 @@
 export default function VideoSection() {
     return (
-      <section id="video" className="py-16 md:py-24 bg-background">
+      <section id="video" className="py-16 md:py-24 bg-secondary">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             <div className="order-2 md:order-1">
