@@ -5,6 +5,7 @@ import News from '@/components/news';
 import VideoSection from '@/components/video-section';
 import SuccessStories from '@/components/success-stories';
 import Footer from '@/components/footer';
+import Clients from '@/components/clients';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <News />
         <VideoSection />
         <SuccessStories />
+        <Clients />
       </main>
       <Footer />
     </div>
