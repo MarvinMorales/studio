@@ -105,8 +105,10 @@ export default function Header() {
                                 </AccordionContent>
                             </>
                          ) : (
-                            <Link href={`/category/${item.id}`} className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground text-sm font-normal">
+                            <Link href={`/category/${item.id}`} passHref>
+                              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "w-full justify-start font-normal")}>
                                 {item.name}
+                              </NavigationMenuLink>
                             </Link>
                          )}
                     </AccordionItem>
@@ -140,7 +142,7 @@ export default function Header() {
               }
               return (
                  <NavigationMenuItem key={link.id}>
-                    <Link href={link.redirects} legacyBehavior passHref>
+                    <Link href={link.redirects} passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             {link.name}
                         </NavigationMenuLink>
