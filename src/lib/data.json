@@ -67,11 +67,11 @@
             ]
         },
         "landingBanner": {
-            "showBanner": true,
+            "showBanner": false,
             "bannerImage": "https://lh3.googleusercontent.com/d/1q0ZMKh0CXdAQ4Y4096X0Ht5pqGXS4UVn"
         },
         "whyChooseUs": {
-            "showThisSection": true,
+            "showThisSection": false,
             "title": "¿Por qué elegirnos?",
             "subtitle": "Somos líderes en soluciones tecnológicas para retail en Ecuador, ofreciendo productos y servicios de alta calidad.",
             "cards": [
@@ -1110,3 +1110,5 @@
         ]
     }
 }
+
+    
