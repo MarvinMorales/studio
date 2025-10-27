@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { cn } from "@/lib/utils";
@@ -40,7 +40,7 @@ export default function Header() {
     if (!subCategories) return null;
 
     return (
-      <ul className="p-4 md:w-[200px] lg:w-[250px]">
+      <ul className="grid grid-cols-2 gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-3">
         {subCategories.map((subCategory) => (
             <ListItem key={subCategory.id} href={`/category/${subCategory.id}`} title={subCategory.name}>
                 {subCategory.description}
@@ -67,14 +67,13 @@ export default function Header() {
                   <NavigationMenuItem key={link.id}>
                     <NavigationMenuTrigger>{link.name}</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                      <div className="grid grid-cols-4 w-max">
+                      <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-1 lg:w-[600px] ">
                         {categoriesData.map((category) => (
-                           <div key={category.id}>
-                             <h3 className="font-bold p-4">{category.name}</h3>
-                             {category.subCategory && renderSubCategories(category.subCategory)}
-                           </div>
+                           <ListItem key={category.id} href={`/category/${category.id}`} title={category.name}>
+                             {category.description}
+                           </ListItem>
                         ))}
-                      </div>
+                      </ul>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
                 );
