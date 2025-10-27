@@ -37,10 +37,10 @@ export default function Footer() {
               Soluciones completas para retail y puntos de venta. Ofrecemos tecnología de punta para optimizar su negocio.
             </p>
             <div className="flex space-x-2">
-              <a href={businessInformation.socialMedia.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="bg-red-600/80 hover:bg-red-600 text-white p-2 rounded-full flex items-center justify-center transition-colors">
+              <a href={businessInformation.socialMedia.facebook} aria-label="Facebook" target="_blank" rel="noopener noreferrer" className="bg-primary/80 hover:bg-primary text-white p-2 rounded-full flex items-center justify-center transition-colors">
                 <Facebook className="h-4 w-4" />
               </a>
-              <a href={businessInformation.socialMedia.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="bg-red-600/80 hover:bg-red-600 text-white p-2 rounded-full flex items-center justify-center transition-colors">
+              <a href={businessInformation.socialMedia.instagram} aria-label="Instagram" target="_blank" rel="noopener noreferrer" className="bg-primary/80 hover:bg-primary text-white p-2 rounded-full flex items-center justify-center transition-colors">
                 <Instagram className="h-4 w-4" />
               </a>
             </div>
@@ -65,7 +65,7 @@ export default function Footer() {
           <div>
             <h4 className="font-headline font-semibold text-white mb-4">Categorías</h4>
             <ul className="space-y-2">
-              {categoriesData.map(category => (
+              {categoriesData.slice(0, 4).map(category => (
                 <li key={category.id}>
                   <Link href={`/category/${category.id}`} className="flex items-center text-sm hover:text-white transition-colors">
                     <ArrowRight className="h-3 w-3 mr-2" />
