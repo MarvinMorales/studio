@@ -1,14 +1,13 @@
 "use client";
 
-import React, { useState, useEffect, useMemo, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, Search, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { cn } from "@/lib/utils";
-import { Input } from "./ui/input";
 import Image from "next/image";
-import { allProducts, websiteData, Product, categoriesData, SubCategory, Category } from "@/lib/data";
+import { websiteData, categoriesData, SubCategory } from "@/lib/data";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -82,7 +81,7 @@ export default function Header() {
               }
               return (
                  <NavigationMenuItem key={link.id}>
-                    <Link href={link.redirects} passHref>
+                    <Link href={link.redirects} legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             {link.name}
                         </NavigationMenuLink>
