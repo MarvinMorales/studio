@@ -4,9 +4,13 @@ import { Button } from './ui/button';
 import { websiteData } from '@/lib/data';
 import Image from 'next/image';
 
-const { header, businessInformation } = websiteData;
-
 export default function Footer() {
+  const { header, businessInformation } = websiteData;
+
+  if (!businessInformation) {
+    return null;
+  }
+
   return (
     <footer className="bg-gray-800 text-white">
       <div className="container mx-auto px-4 md:px-6">
