@@ -5,13 +5,15 @@ import { getCategoryBySlug, getProductsByCategoryId, Category, Product, SubCateg
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Image from 'next/image';
-import { notFound, useSearchParams } from 'next/navigation';
+import { notFound, useSearchParams, useRouter, usePathname } from 'next/navigation';
 import { Star } from 'lucide-react';
 import ProductModal from '@/components/product-modal';
 import Link from 'next/link';
 
 export default function CategoryPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const productParam = searchParams.get('product');
   
@@ -25,7 +27,13 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
       const productToShow = products.find(p => p.id === productParam);
       if (productToShow) {
         setSelectedProduct(productToShow);
+      } else {
+        // If product not found in current category, maybe check all products
+        // For now, we just close the modal if the product is not in the category
+        handleCloseModal();
       }
+    } else {
+      setSelectedProduct(null);
     }
   }, [productParam, category]);
 
@@ -37,11 +45,15 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   const subCategories = 'subCategory' in category && category.subCategory ? category.subCategory : [];
 
   const handleProductClick = (product: Product) => {
-    setSelectedProduct(product);
+    const params = new URLSearchParams(searchParams);
+    params.set('product', product.id);
+    router.push(`${pathname}?${params.toString()}`);
   };
 
   const handleCloseModal = () => {
-    setSelectedProduct(null);
+    const params = new URLSearchParams(searchParams);
+    params.delete('product');
+    router.push(`${pathname}?${params.toString()}`);
   };
   
   const renderSubCategories = (subCats: SubCategory[]) => {
