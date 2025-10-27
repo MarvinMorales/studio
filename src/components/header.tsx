@@ -2,28 +2,16 @@
 
 import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
-import { Camera, Menu, Search, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
 import Image from "next/image";
-import { Product } from "@/app/category/[slug]/page";
+import { allProducts, websiteData, Product } from "@/lib/data";
 
-// Simulación de productos para la búsqueda. En una aplicación real, esto vendría de una API.
-const allProducts: Product[] = [
-    { id: 1, name: 'Producto 1', description: 'Descripción detallada y extensa del producto 1.', images: ['https://picsum.photos/seed/p1/800/600'], rating: 4.5 },
-    { id: 2, name: 'Producto 2', description: 'Esta es una descripción más corta para el producto 2.', images: ['https://picsum.photos/seed/p2/800/600'], rating: 4.8 },
-    { id: 3, name: 'Producto 3', description: 'Otra descripción larga para el producto 3.', images: ['https://picsum.photos/seed/p3/800/600'], rating: 4.2 },
-    { id: 4, name: 'Cámara IP Domo', description: 'Cámara de seguridad tipo domo para interiores.', images: ['https://picsum.photos/seed/p4/800/600'], rating: 5.0 },
-    { id: 5, name: 'Servidor de Almacenamiento', description: 'Servidor NAS para almacenamiento de video vigilancia.', images: ['https://picsum.photos/seed/p5/800/600'], rating: 3.9 },
-    { id: 6, name: 'Lector RFID', description: 'Lector de tarjetas RFID para control de acceso.', images: ['https://picsum.photos/seed/p6/800/600'], rating: 4.6 },
-];
-
-const navLinks = [
-  { href: "/", label: "Inicio" },
-  { href: "/#categories", label: "Soluciones integrales" },
-];
+const { header: headerData } = websiteData;
+const navLinks = headerData.menu;
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -64,13 +52,12 @@ export default function Header() {
     )}>
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
-          <Camera className="h-8 w-8 text-primary" />
-          <span className="text-2xl font-bold font-headline text-foreground">OneSecurity</span>
+          <Image src={headerData.logo} alt="Logo" width={150} height={40} className="object-contain" />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
-              {link.label}
+            <Link key={link.id} href={link.redirects} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors">
+              {link.name}
             </Link>
           ))}
         </nav>
@@ -105,7 +92,7 @@ export default function Header() {
                     {filteredProducts.map(product => (
                       <Link
                         key={product.id}
-                        href="#" // Debería ir a la página del producto
+                        href={`/category/${product.category}?product=${product.id}`}
                         className="flex items-center gap-4 p-2 rounded-md hover:bg-muted"
                         onClick={() => {
                           setIsSearchFocused(false);
@@ -123,7 +110,6 @@ export default function Header() {
               </div>
             )}
           </div>
-          <Button>Contacto</Button>
           <div className="md:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -135,27 +121,19 @@ export default function Header() {
               <SheetContent side="right">
                 <div className="flex flex-col p-6">
                   <Link href="/" className="flex items-center gap-2 mb-8">
-                    <Camera className="h-8 w-8 text-primary" />
-                    <span className="text-xl font-bold font-headline">OneSecurity</span>
+                     <Image src={headerData.logo} alt="Logo" width={120} height={30} className="object-contain" />
                   </Link>
                   <nav className="flex flex-col gap-6">
                     {navLinks.map((link) => (
                       <Link
-                        key={link.href}
-                        href={link.href}
+                        key={link.id}
+                        href={link.redirects}
                         className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        {link.label}
+                        {link.name}
                       </Link>
                     ))}
-                    <Link
-                      href="#"
-                      className="text-lg font-medium text-foreground/80 hover:text-primary transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      Contacto
-                    </Link>
                   </nav>
                 </div>
               </SheetContent>

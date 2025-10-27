@@ -8,11 +8,13 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { websiteData } from "@/lib/data";
 import { Button } from "./ui/button";
 import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
 
-const heroImages = PlaceHolderImages.filter(img => img.id.startsWith('hero-'));
+const { heroSection } = websiteData;
+const heroImages = heroSection.slides;
 
 export default function Hero() {
   return (
@@ -23,15 +25,14 @@ export default function Hero() {
         plugins={[Autoplay({ delay: 5000, stopOnInteraction: true })]}
       >
         <CarouselContent className="h-full">
-          {heroImages.map((image, index) => (
-            <CarouselItem key={image.id} className="h-full">
+          {heroImages.map((slide, index) => (
+            <CarouselItem key={slide.id} className="h-full">
               <div className="relative h-full w-full">
                 <Image
-                  src={image.imageUrl}
-                  alt={image.description}
+                  src={slide.image}
+                  alt={slide.title || `Hero image ${index + 1}`}
                   fill
                   className="object-cover"
-                  data-ai-hint={image.imageHint}
                   priority={index === 0}
                   sizes="100vw"
                 />
@@ -42,15 +43,21 @@ export default function Hero() {
         </CarouselContent>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
           <div className="container mx-auto text-center text-white px-4">
-            <h1 className="text-4xl md:text-6xl font-bold font-headline drop-shadow-lg leading-tight">
-              Soluciones Integrales de Seguridad Tecnológica
-            </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl drop-shadow-md">
-              Protegemos lo que más importa con tecnología de vanguardia. Cámaras IP, control de acceso y más.
-            </p>
-            <Button size="lg" className="mt-8">
-              Descubre Nuestros Productos
-            </Button>
+             {heroImages[0].showInfo && (
+              <>
+                <h1 className="text-4xl md:text-6xl font-bold font-headline drop-shadow-lg leading-tight">
+                  {heroImages[0].title || 'Soluciones Integrales de Seguridad Tecnológica'}
+                </h1>
+                <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl drop-shadow-md">
+                  {heroImages[0].subtitle || 'Protegemos lo que más importa con tecnología de vanguardia.'}
+                </p>
+                <Button size="lg" className="mt-8" asChild>
+                    <Link href={heroImages[0].link || "#"}>
+                        {heroImages[0].cta || 'Descubre Nuestros Productos'}
+                    </Link>
+                </Button>
+              </>
+            )}
           </div>
         </div>
         <CarouselPrevious className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white bg-white/20 hover:bg-white/30 border-white/50" />

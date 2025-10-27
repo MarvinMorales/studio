@@ -5,7 +5,8 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Button } from "./ui/button";
 import { Star, MessageCircle } from "lucide-react";
-import type { Product } from "@/app/category/[slug]/page";
+import type { Product } from "@/lib/data";
+import { websiteData } from "@/lib/data";
 
 interface ProductModalProps {
   product: Product;
@@ -13,7 +14,8 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
-  const whatsappLink = `https://wa.me/?text=${encodeURIComponent(`Hola, estoy interesado en el producto: ${product.name}`)}`;
+  const whatsappNumber = websiteData.businessInformation.whatsappNumber;
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, estoy interesado en el producto: ${product.name}`)}`;
 
   return (
     <Dialog open={!!product} onOpenChange={(isOpen) => !isOpen && onClose()}>
@@ -50,7 +52,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
                 <Star className="w-5 h-5 text-yellow-400 fill-yellow-400 mr-1" />
                 <span className="font-bold text-lg">{product.rating.toFixed(1)}</span>
             </div>
-            <p className="text-base text-muted-foreground flex-1 mb-6">
+            <p className="text-base text-muted-foreground flex-1 mb-6" style={{ whiteSpace: 'pre-line' }}>
               {product.description}
             </p>
             <Button asChild size="lg">

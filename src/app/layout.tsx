@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'OneSecurity Vision',
-  description: 'Soluciones integrales de seguridad tecnológica',
+  title: 'Retail Point',
+  description: 'Soluciones integrales de tecnología para retail',
 };
 
 export default function RootLayout({

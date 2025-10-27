@@ -1,12 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { clientsData } from "@/lib/data";
 
-const clientLogos = PlaceHolderImages.filter(img => img.id.startsWith('client-'));
-
-// Duplicamos los logos para asegurar un bucle infinito y suave
-const duplicatedLogos = [...clientLogos, ...clientLogos];
+const duplicatedLogos = [...clientsData, ...clientsData];
 
 export default function Clients() {
   return (
@@ -31,12 +28,11 @@ export default function Clients() {
             >
               <div className="bg-card rounded-full p-2 shadow-md w-24 h-24 flex items-center justify-center overflow-hidden">
                 <Image
-                  src={logo.imageUrl}
-                  alt={logo.description}
+                  src={logo.clientImage}
+                  alt={logo.name}
                   width={80}
                   height={40}
                   className="object-contain"
-                  data-ai-hint={logo.imageHint}
                 />
               </div>
             </div>

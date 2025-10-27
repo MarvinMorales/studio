@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Instagram } from "lucide-react";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
+import { instagramPostsData } from "@/lib/data";
 import { Button } from "./ui/button";
 
-const instagramPosts = PlaceHolderImages.filter(img => img.id.startsWith('insta-'));
+const instagramPosts = instagramPostsData;
 
 export default function News() {
   return (
@@ -15,26 +15,26 @@ export default function News() {
             Síguenos en Instagram para estar al día de nuestros últimos productos y proyectos.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4">
-          {instagramPosts.slice(0, 15).map((post) => (
-            <a key={post.id} href="#" target="_blank" rel="noopener noreferrer" className="group relative block w-full aspect-square overflow-hidden rounded-md shadow-md">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
+          {instagramPosts.map((post) => (
+            <a key={post.id} href={post.redirection} target="_blank" rel="noopener noreferrer" className="group relative block w-full aspect-square overflow-hidden rounded-md shadow-md">
               <Image
-                src={post.imageUrl}
-                alt={post.description}
+                src={post.image}
+                alt={post.caption}
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-110"
-                sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-                data-ai-hint={post.imageHint}
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <Instagram className="h-8 w-8 text-white" />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                <p className="text-white text-center text-sm line-clamp-4">{post.caption}</p>
+                <Instagram className="h-8 w-8 text-white absolute bottom-4 right-4" />
               </div>
             </a>
           ))}
         </div>
         <div className="text-center mt-12">
             <Button asChild size="lg">
-                <a href="#" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/retailpointecuador/" target="_blank" rel="noopener noreferrer">
                     <Instagram className="mr-2 h-5 w-5" />
                     Ver más en Instagram
                 </a>
