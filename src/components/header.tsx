@@ -38,10 +38,8 @@ const SubMenu = ({ subCategories, onLinkClick }: { subCategories: SubCategory[],
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value={subCategory.id} className="border-b-0">
                   <div className="flex items-center justify-between hover:bg-accent rounded-md">
-                    <Link href={`/category/${subCategory.id}`} legacyBehavior passHref>
-                      <a className="flex-1 py-2 px-3 text-sm font-medium" onClick={onLinkClick}>
-                        {subCategory.name}
-                      </a>
+                    <Link href={`/category/${subCategory.id}`} className="flex-1 py-2 px-3 text-sm font-medium" onClick={onLinkClick}>
+                      {subCategory.name}
                     </Link>
                     <AccordionTrigger className="py-2 px-3 [&[data-state=open]>svg]:rotate-90 w-auto">
                       <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200" />
@@ -53,10 +51,8 @@ const SubMenu = ({ subCategories, onLinkClick }: { subCategories: SubCategory[],
                 </AccordionItem>
               </Accordion>
             ) : (
-              <Link href={`/category/${subCategory.id}`} legacyBehavior passHref>
-                <a className="block py-2 px-3 text-sm font-medium hover:bg-accent rounded-md" onClick={onLinkClick}>
-                  {subCategory.name}
-                </a>
+              <Link href={`/category/${subCategory.id}`} className="block py-2 px-3 text-sm font-medium hover:bg-accent rounded-md" onClick={onLinkClick}>
+                {subCategory.name}
               </Link>
             )}
           </li>
@@ -186,10 +182,8 @@ export default function Header() {
                                         <Accordion type="single" collapsible className="w-full">
                                           <AccordionItem value={category.id} className="border-b-0">
                                             <div className="flex items-center justify-between hover:bg-accent rounded-md">
-                                                <Link href={`/category/${category.id}`} legacyBehavior passHref>
-                                                    <a className="flex-1 py-2 px-3 text-sm font-medium" onClick={handleMobileLinkClick}>
-                                                        {category.name}
-                                                    </a>
+                                                <Link href={`/category/${category.id}`} className="flex-1 py-2 px-3 text-sm font-medium" onClick={handleMobileLinkClick}>
+                                                    {category.name}
                                                 </Link>
                                                 <AccordionTrigger className="py-2 px-3 [&[data-state=open]>svg]:rotate-90 w-auto">
                                                     <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200" />
@@ -201,10 +195,8 @@ export default function Header() {
                                           </AccordionItem>
                                         </Accordion>
                                       ) : (
-                                        <Link href={`/category/${category.id}`} legacyBehavior passHref>
-                                            <a className="block py-2 px-3 text-sm font-medium hover:bg-accent rounded-md" onClick={handleMobileLinkClick}>
-                                                {category.name}
-                                            </a>
+                                        <Link href={`/category/${category.id}`} className="block py-2 px-3 text-sm font-medium hover:bg-accent rounded-md" onClick={handleMobileLinkClick}>
+                                            {category.name}
                                         </Link>
                                       )}
                                     </li>
