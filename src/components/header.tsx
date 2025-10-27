@@ -23,6 +23,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const { header: headerData } = websiteData;
 const navLinks = headerData.menu;
@@ -60,6 +61,51 @@ const SubMenu = ({ subCategories, onLinkClick }: { subCategories: SubCategory[],
       </ul>
     );
   };
+  
+const DesktopSubMenuItem = ({ item }: { item: Category | SubCategory }) => {
+    const [isOpen, setIsOpen] = useState(false);
+    
+    if (!item.subCategory || item.subCategory.length === 0) {
+      return (
+        <Link href={`/category/${item.id}`} passHref legacyBehavior>
+            <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "w-full justify-start font-normal")}>
+            {item.name}
+            </NavigationMenuLink>
+        </Link>
+      );
+    }
+  
+    return (
+      <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+        <div className="flex items-center justify-between hover:bg-accent rounded-md text-sm">
+          <Link href={`/category/${item.id}`} className="flex-1 p-3">
+            {item.name}
+          </Link>
+          <CollapsibleTrigger asChild>
+             <Button variant="ghost" size="sm" className="w-9 p-0">
+                <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200 data-[state=open]:rotate-90" />
+                <span className="sr-only">Toggle</span>
+            </Button>
+          </CollapsibleTrigger>
+        </div>
+        <CollapsibleContent>
+            <div className="pl-4 border-l">
+                {item.subCategory.map(subItem => <DesktopSubMenuItem key={subItem.id} item={subItem} />)}
+            </div>
+        </CollapsibleContent>
+      </Collapsible>
+    );
+};
+  
+const renderDesktopSubMenu = (items: (Category | SubCategory)[]) => {
+    return (
+      <NavigationMenuContent>
+        <div className="w-[280px] p-2">
+            {items.map((item) => <DesktopSubMenuItem key={item.id} item={item} />)}
+        </div>
+      </NavigationMenuContent>
+    );
+};
 
 
 export default function Header() {
@@ -79,44 +125,6 @@ export default function Header() {
 
   const handleMobileLinkClick = () => {
     setMobileMenuOpen(false);
-  };
-
-  const renderDesktopSubMenu = (items: (Category | SubCategory)[]) => {
-    return (
-      <NavigationMenuContent>
-        <div className="w-[280px] p-2">
-            <Accordion type="multiple" className="w-full">
-                {items.map((item) => (
-                    <AccordionItem key={item.id} value={item.id} className="border-b-0">
-                         {item.subCategory && item.subCategory.length > 0 ? (
-                            <>
-                                <div className="flex items-center justify-between hover:bg-accent rounded-md text-sm">
-                                    <Link href={`/category/${item.id}`} className="flex-1 p-3">
-                                        {item.name}
-                                    </Link>
-                                    <AccordionTrigger className="p-3 w-auto [&[data-state=open]>svg]:rotate-90">
-                                         <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200" />
-                                    </AccordionTrigger>
-                                </div>
-                                <AccordionContent>
-                                    <div className="pl-4 border-l">
-                                      {renderDesktopSubMenu(item.subCategory)}
-                                    </div>
-                                </AccordionContent>
-                            </>
-                         ) : (
-                            <Link href={`/category/${item.id}`} passHref>
-                              <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "w-full justify-start font-normal")}>
-                                {item.name}
-                              </NavigationMenuLink>
-                            </Link>
-                         )}
-                    </AccordionItem>
-                ))}
-            </Accordion>
-        </div>
-      </NavigationMenuContent>
-    );
   };
   
 
@@ -142,7 +150,7 @@ export default function Header() {
               }
               return (
                  <NavigationMenuItem key={link.id}>
-                    <Link href={link.redirects} passHref>
+                    <Link href={link.redirects} legacyBehavior passHref>
                         <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                             {link.name}
                         </NavigationMenuLink>
@@ -259,3 +267,5 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = "ListItem";
+
+    
