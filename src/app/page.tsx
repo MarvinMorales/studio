@@ -7,6 +7,9 @@ import Clients from '@/components/clients';
 import { websiteData } from '@/lib/data';
 import LandingBanner from '@/components/landing-banner';
 import VideoSection from '@/components/video-section';
+import WhyChooseUs from '@/components/why-choose-us';
+import TechService from '@/components/tech-service';
+import AllStateCoverage from '@/components/all-state-coverage';
 
 
 export default function Home() {
@@ -16,8 +19,11 @@ export default function Home() {
       <main className="flex-1">
         {websiteData.heroSection.showThisSection && <Hero />}
         {websiteData.landingBanner.showBanner && <LandingBanner />}
+        {websiteData.whyChooseUs.showThisSection && <WhyChooseUs />}
         {websiteData.videoSection.showThisSection && <VideoSection />}
         {websiteData.fastCategoriesSection.showThisSection && <Categories />}
+        {websiteData.allStateCoverage.showThisSection && <AllStateCoverage />}
+        {websiteData.techServiceSection.showThisSection && <TechService />}
         <News />
         <Clients />
       </main>

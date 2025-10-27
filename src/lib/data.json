@@ -67,11 +67,11 @@
             ]
         },
         "landingBanner": {
-            "showBanner": false,
+            "showBanner": true,
             "bannerImage": "https://lh3.googleusercontent.com/d/1q0ZMKh0CXdAQ4Y4096X0Ht5pqGXS4UVn"
         },
         "whyChooseUs": {
-            "showThisSection": false,
+            "showThisSection": true,
             "title": "¿Por qué elegirnos?",
             "subtitle": "Somos líderes en soluciones tecnológicas para retail en Ecuador, ofreciendo productos y servicios de alta calidad.",
             "cards": [
@@ -105,12 +105,12 @@
             "title": "Categorías de nuestros productos"
         },
         "allStateCoverage": {
-            "showThisSection": false,
+            "showThisSection": true,
             "title": "ENVIOS A TODO EL PAÍS",
             "image": "https://thumbs.dreamstime.com/b/dot-ecuador-map-rojo-118731771.jpg"
         },
         "techServiceSection": {
-            "showThisSection": false,
+            "showThisSection": true,
             "backgroundImage": "https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg",
             "title": "SERVICIO TÉCNICO",
             "subtitle": "Es importante cuidar de la inversión de nuestros clientes por lo que sugerimos siempre el mantenimiento preventivo y correctivo de los dispositivos antihurto.",
@@ -1110,5 +1110,3 @@
         ]
     }
 }
-
-    

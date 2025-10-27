@@ -91,6 +91,7 @@ export const clientsData: Client[] = data.ourClients;
 
 function findCategoryRecursive(categories: (Category | SubCategory)[], slug: string): Category | SubCategory | null {
   for (const category of categories) {
+    if (!category) continue;
     if (category.id === slug) {
       return category;
     }
