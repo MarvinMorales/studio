@@ -6,7 +6,6 @@ import Footer from '@/components/footer';
 import Clients from '@/components/clients';
 import { websiteData } from '@/lib/data';
 import LandingBanner from '@/components/landing-banner';
-import WhyChooseUs from '@/components/why-choose-us';
 import VideoSection from '@/components/video-section';
 
 
@@ -17,7 +16,6 @@ export default function Home() {
       <main className="flex-1">
         {websiteData.heroSection.showThisSection && <Hero />}
         {websiteData.landingBanner.showBanner && <LandingBanner />}
-        {websiteData.whyChooseUs.showThisSection && <WhyChooseUs />}
         {websiteData.videoSection.showThisSection && <VideoSection />}
         {websiteData.fastCategoriesSection.showThisSection && <Categories />}
         <News />

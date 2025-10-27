@@ -4,7 +4,7 @@ import { websiteData } from "@/lib/data";
 const { whyChooseUs } = websiteData;
 
 export default function WhyChooseUs() {
-  if (!whyChooseUs.showThisSection) {
+  if (!whyChooseUs || !whyChooseUs.showThisSection) {
     return null;
   }
 
