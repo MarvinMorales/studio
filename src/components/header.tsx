@@ -39,9 +39,9 @@ const SubMenu = ({ subCategories, onLinkClick }: { subCategories: SubCategory[],
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value={subCategory.id} className="border-b-0">
                   <div className="flex items-center justify-between hover:bg-accent rounded-md">
-                    <Link href={`/category/${subCategory.id}`} className="flex-1 py-2 px-3 text-sm font-medium" onClick={onLinkClick}>
+                    <span className="flex-1 py-2 px-3 text-sm font-medium">
                       {subCategory.name}
-                    </Link>
+                    </span>
                     <AccordionTrigger className="py-2 px-3 [&[data-state=open]>svg]:rotate-90 w-auto">
                       <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200" />
                     </AccordionTrigger>
@@ -67,7 +67,7 @@ const DesktopSubMenuItem = ({ item }: { item: Category | SubCategory }) => {
     
     if (!item.subCategory || item.subCategory.length === 0) {
       return (
-        <Link href={`/category/${item.id}`} passHref legacyBehavior>
+        <Link href={`/category/${item.id}`} passHref>
             <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "w-full justify-start font-normal")}>
             {item.name}
             </NavigationMenuLink>
@@ -78,9 +78,9 @@ const DesktopSubMenuItem = ({ item }: { item: Category | SubCategory }) => {
     return (
       <Collapsible open={isOpen} onOpenChange={setIsOpen}>
         <div className="flex items-center justify-between hover:bg-accent rounded-md text-sm">
-          <Link href={`/category/${item.id}`} className="flex-1 p-3">
+          <span className="flex-1 p-3 cursor-pointer" onClick={() => setIsOpen(!isOpen)}>
             {item.name}
-          </Link>
+          </span>
           <CollapsibleTrigger asChild>
              <Button variant="ghost" size="sm" className="w-9 p-0">
                 <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200 data-[state=open]:rotate-90" />
@@ -192,9 +192,9 @@ export default function Header() {
                                         <Accordion type="single" collapsible className="w-full">
                                           <AccordionItem value={category.id} className="border-b-0">
                                             <div className="flex items-center justify-between hover:bg-accent rounded-md">
-                                                <Link href={`/category/${category.id}`} className="flex-1 py-2 px-3 text-sm font-medium" onClick={handleMobileLinkClick}>
+                                                <span className="flex-1 py-2 px-3 text-sm font-medium">
                                                     {category.name}
-                                                </Link>
+                                                </span>
                                                 <AccordionTrigger className="py-2 px-3 [&[data-state=open]>svg]:rotate-90 w-auto">
                                                     <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200" />
                                                 </AccordionTrigger>
@@ -267,5 +267,3 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = "ListItem";
-
-    
