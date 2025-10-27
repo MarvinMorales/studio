@@ -93,21 +93,28 @@
                 }
             ]
         },
-        "techServiceSection": {
+        "videoSection": {
             "showThisSection": true,
-            "backgroundImage": "https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg",
-            "title": "SERVICIO TÉCNICO",
-            "subtitle": "Es importante cuidar de la inversión de nuestros clientes por lo que sugerimos siempre el mantenimiento preventivo y correctivo de los dispositivos antihurto.",
-            "button": "SOLICITAR"
+            "backgroundImage": "https://images.pexels.com/photos/1921336/pexels-photo-1921336.jpeg",
+            "title": "Conoce Nuestras Soluciones",
+            "description": "Descubre cómo nuestras tecnologías pueden transformar tu negocio.",
+            "videoId": "UfJc2i6n_pE"
         },
         "fastCategoriesSection": {
             "showThisSection": true,
             "title": "Categorías de nuestros productos"
         },
         "allStateCoverage": {
-            "showThisSection": true,
+            "showThisSection": false,
             "title": "ENVIOS A TODO EL PAÍS",
             "image": "https://thumbs.dreamstime.com/b/dot-ecuador-map-rojo-118731771.jpg"
+        },
+        "techServiceSection": {
+            "showThisSection": false,
+            "backgroundImage": "https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg",
+            "title": "SERVICIO TÉCNICO",
+            "subtitle": "Es importante cuidar de la inversión de nuestros clientes por lo que sugerimos siempre el mantenimiento preventivo y correctivo de los dispositivos antihurto.",
+            "button": "SOLICITAR"
         }
     },
     "categories": [

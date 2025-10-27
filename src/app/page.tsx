@@ -7,8 +7,7 @@ import Clients from '@/components/clients';
 import { websiteData } from '@/lib/data';
 import LandingBanner from '@/components/landing-banner';
 import WhyChooseUs from '@/components/why-choose-us';
-import TechService from '@/components/tech-service';
-import AllStateCoverage from '@/components/all-state-coverage';
+import VideoSection from '@/components/video-section';
 
 
 export default function Home() {
@@ -19,10 +18,9 @@ export default function Home() {
         {websiteData.heroSection.showThisSection && <Hero />}
         {websiteData.landingBanner.showBanner && <LandingBanner />}
         {websiteData.whyChooseUs.showThisSection && <WhyChooseUs />}
-        {websiteData.techServiceSection.showThisSection && <TechService />}
+        {websiteData.videoSection.showThisSection && <VideoSection />}
         {websiteData.fastCategoriesSection.showThisSection && <Categories />}
         <News />
-        {websiteData.allStateCoverage.showThisSection && <AllStateCoverage />}
         <Clients />
       </main>
       <Footer />
