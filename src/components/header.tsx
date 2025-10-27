@@ -16,6 +16,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
 const { header: headerData } = websiteData;
@@ -59,12 +60,9 @@ export default function Header() {
     return (
       <ul className="p-4 md:w-[200px] lg:w-[250px]">
         {subCategories.map((subCategory) => (
-            <li key={subCategory.id}>
-                 <ListItem href={`/category/${subCategory.id}`} title={subCategory.name}>
-                    {subCategory.description}
-                </ListItem>
-                {subCategory.subCategory && renderSubCategories(subCategory.subCategory)}
-            </li>
+            <ListItem key={subCategory.id} href={`/category/${subCategory.id}`} title={subCategory.name}>
+                {subCategory.description}
+            </ListItem>
         ))}
       </ul>
     );
@@ -101,11 +99,11 @@ export default function Header() {
               }
               return (
                  <NavigationMenuItem key={link.id}>
-                  <Link href={link.redirects} legacyBehavior passHref>
-                    <NavigationMenuLink className={cn("text-sm font-medium text-foreground/80 hover:text-primary transition-colors", "bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent", "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50")}>
-                      {link.name}
-                    </NavigationMenuLink>
-                  </Link>
+                    <Link href={link.redirects} passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            {link.name}
+                        </NavigationMenuLink>
+                    </Link>
                 </NavigationMenuItem>
               );
             })}
