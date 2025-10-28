@@ -104,11 +104,6 @@
             "showThisSection": true,
             "title": "Categorías de nuestros productos"
         },
-        "allStateCoverage": {
-            "showThisSection": false,
-            "title": "ENVIOS A TODO EL PAÍS",
-            "image": "https://thumbs.dreamstime.com/b/dot-ecuador-map-rojo-118731771.jpg"
-        },
         "techServiceSection": {
             "showThisSection": false,
             "backgroundImage": "https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg",
@@ -143,7 +138,7 @@
     "categories": [
         {
             "id": "1",
-            "name": "Sistemas Antihurto EAS",
+            "name": "Sistema Antihurto EAS",
             "description": "Diseñado para reducir al máximo las pérdidas en el punto de venta, este sistema utiliza antenas y etiquetas que detectan intentos de hurto en tiempo real. Ideal para tiendas de ropa, supermercados y comercios que buscan proteger su inventario sin afectar la experiencia del cliente.",
             "coverImage": "https://lh3.googleusercontent.com/d/1FudB1GoN3ewwQ4h3j3NbG3X7NTkFxEgr",
             "tags": [
@@ -157,7 +152,7 @@
             "subCategory": [
                 {
                     "id": "1-1",
-                    "name": "Tecnología Acusto-Magnético",
+                    "name": "Antenas AcustoMagnética",
                     "description": "",
                     "coverImage": "https://lh3.googleusercontent.com/d/1BtOIDVDKDCcTv5CZIfl3fruoNq2u-Px_",
                     "tags": [
@@ -173,7 +168,23 @@
                 },
                 {
                     "id": "1-2",
-                    "name": "Tecnología Radio-Frecuencia",
+                    "name": "Antenas RadioFrecuencia",
+                    "description": "",
+                    "coverImage": "https://lh3.googleusercontent.com/d/1pZIMjyzH7ZI4ZOgmiq5297Ad2ZQQhi39",
+                    "tags": [
+                        "cat-1",
+                        "retail masivo"
+                    ],
+                    "categoryPageBanner": {
+                        "coverImage": "https://lh3.googleusercontent.com/d/1TqloNqsT3XVLIIeE-z5mOZkkSsCKsWbA",
+                        "title": "Nuestros Productos y Servicios",
+                        "subtitle": "Descubra nuestra amplia gama de soluciones tecnológicas para retail"
+                    },
+                    "subCategory": null
+                },
+                {
+                    "id": "1-3",
+                    "name": "Suministros AM y RF",
                     "description": "",
                     "coverImage": "https://lh3.googleusercontent.com/d/1pZIMjyzH7ZI4ZOgmiq5297Ad2ZQQhi39",
                     "tags": [
@@ -191,7 +202,7 @@
         },
         {
             "id": "2",
-            "name": "Sistema ESL",
+            "name": "Preciadores Electrónicos",
             "description": "Transforma la gestión de precios en tu tienda con etiquetas digitales que se actualizan automáticamente desde una plataforma central. Ahorra tiempo, reduce errores humanos, apoya campañas promocionales dinámicas y mejora la presentación visual del producto.",
             "coverImage": "https://lh3.googleusercontent.com/d/1rAWV76n22XNFYIksNAH9D0NK_qL3hNNt",
             "tags": [
@@ -206,37 +217,53 @@
         },
         {
             "id": "3",
-            "name": "Cartelera Digital MPS",
+            "name": "Innovación tecnológica",
             "description": "Moderniza la forma en que te comunicas con tus clientes. Con nuestra cartelera digital puedes gestionar y programar contenidos publicitarios de manera remota, en tiempo real y desde cualquier dispositivo, aumentando el impacto visual y reduciendo costos de impresión.",
             "coverImage": "https://lh3.googleusercontent.com/d/1XxCVPxaLhOoAzJfaNG8jFp0KmCw49DtG",
             "tags": [
                 "cat-3"
             ],
-            "subCategory": null,
             "categoryPageBanner": {
                 "coverImage": "https://lh3.googleusercontent.com/d/1u7R87u3UdHxMTyIOt_B_0p-Nbso-vbcN",
                 "title": "Nuestros Productos y Servicios",
                 "subtitle": "Descubra nuestra amplia gama de soluciones tecnológicas para retail"
-            }
-        },
-        {
-            "id": "4",
-            "name": "Pizarra Interactiva DEEPHUB",
-            "description": "Una herramienta colaborativa todo-en-uno que permite realizar presentaciones, videollamadas, anotaciones y trabajo compartido en tiempo real. Ideal para reuniones corporativas, capacitaciones o entornos educativos que buscan interacción dinámica y profesional.",
-            "coverImage": "https://lh3.googleusercontent.com/d/1am7Urb1cq5c6aL1sf8xuVrImlcgOYPMF",
-            "tags": [
-                "cat-4"
-            ],
-            "subCategory": null,
-            "categoryPageBanner": {
-                "coverImage": "https://lh3.googleusercontent.com/d/1Ca_Y0-AgSExgLmYHXVd5SoU08lqsNTkI",
-                "title": "Nuestros Productos y Servicios",
-                "subtitle": "Descubra nuestra amplia gama de soluciones tecnológicas para retail"
-            }
+            },
+            "subCategory": [
+                {
+                    "id": "3-1",
+                    "name": "Cartelera Digital",
+                    "description": "Moderniza la forma en que te comunicas con tus clientes. Con nuestra cartelera digital puedes gestionar y programar contenidos publicitarios de manera remota, en tiempo real y desde cualquier dispositivo, aumentando el impacto visual y reduciendo costos de impresión.",
+                    "coverImage": "https://lh3.googleusercontent.com/d/1XxCVPxaLhOoAzJfaNG8jFp0KmCw49DtG",
+                    "tags": [
+                        "cat-3"
+                    ],
+                    "subCategory": null,
+                    "categoryPageBanner": {
+                        "coverImage": "https://lh3.googleusercontent.com/d/1u7R87u3UdHxMTyIOt_B_0p-Nbso-vbcN",
+                        "title": "Nuestros Productos y Servicios",
+                        "subtitle": "Descubra nuestra amplia gama de soluciones tecnológicas para retail"
+                    }
+                },
+                {
+                    "id": "3-2",
+                    "name": "Pizarra Interactiva",
+                    "description": "Una herramienta colaborativa todo-en-uno que permite realizar presentaciones, videollamadas, anotaciones y trabajo compartido en tiempo real. Ideal para reuniones corporativas, capacitaciones o entornos educativos que buscan interacción dinámica y profesional.",
+                    "coverImage": "https://lh3.googleusercontent.com/d/1am7Urb1cq5c6aL1sf8xuVrImlcgOYPMF",
+                    "tags": [
+                        "cat-4"
+                    ],
+                    "subCategory": null,
+                    "categoryPageBanner": {
+                        "coverImage": "https://lh3.googleusercontent.com/d/1Ca_Y0-AgSExgLmYHXVd5SoU08lqsNTkI",
+                        "title": "Nuestros Productos y Servicios",
+                        "subtitle": "Descubra nuestra amplia gama de soluciones tecnológicas para retail"
+                    }
+                }
+            ]
         },
         {
             "id": "5",
-            "name": "Sistema CCTV con tecnología IA",
+            "name": "CCTV con IA",
             "description": "Más que solo vigilancia: nuestras cámaras inteligentes analizan el comportamiento en el entorno. Reconocen rostros, identifican merodeo, miden afluencia, detectan emociones y generan alertas automatizadas para una gestión preventiva y analítica del espacio.",
             "coverImage": "https://lh3.googleusercontent.com/d/1UwnC8f8aIjqKyiDTV7Ck9dIQvOIV5HCJ",
             "tags": [
@@ -251,12 +278,17 @@
         },
         {
             "id": "6",
-            "name": "Sistema RFID",
+            "name": "RFID",
             "description": "Permite el control automatizado y preciso de inventarios, facilitando la trazabilidad de productos desde el ingreso hasta la venta. Reduce pérdidas por errores de conteo, acelera procesos logísticos y mejora la eficiencia en bodegas, tiendas o centros de distribución.",
             "coverImage": "https://lh3.googleusercontent.com/d/1oN0iBS1D4oX9xuGOrxASIjrxwA7ImVUL",
             "tags": [
                 "cat-6"
             ],
+            "categoryPageBanner": {
+                "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
+                "title": "Nuestros Productos y Servicios",
+                "subtitle": "Descubra nuestra amplia gama de soluciones tecnológicas para retail"
+            },
             "subCategory": [
                 {
                     "id": "6-1",
@@ -264,8 +296,7 @@
                     "description": "",
                     "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
                     "tags": [
-                        "cat-1",
-                        "retail masivo"
+                        "cat-6", "soluciones"
                     ],
                     "categoryPageBanner": {
                         "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
@@ -276,12 +307,11 @@
                 },
                 {
                     "id": "6-2",
-                    "name": "Suministros",
+                    "name": "Consumibles",
                     "description": "",
                     "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
                     "tags": [
-                        "cat-1",
-                        "retail masivo"
+                        "cat-6", "consumibles"
                     ],
                     "categoryPageBanner": {
                         "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
@@ -291,12 +321,11 @@
                     "subCategory": [
                         {
                             "id": "6-2-1",
-                            "name": "Etiquetas blandas",
+                            "name": "Etiquetas Blandas",
                             "description": "",
                             "coverImage": "https://lh3.googleusercontent.com/d/1BtOIDVDKDCcTv5CZIfl3fruoNq2u-Px_",
                             "tags": [
-                                "cat-1",
-                                "retail masivo"
+                                "cat-6", "consumibles", "blandas"
                             ],
                             "categoryPageBanner": {
                                 "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
@@ -307,12 +336,11 @@
                         },
                         {
                             "id": "6-2-2",
-                            "name": "Etiquetas duras",
+                            "name": "Etiquetas Duras",
                             "description": "",
                             "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
                             "tags": [
-                                "cat-1",
-                                "retail masivo"
+                                "cat-6", "consumibles", "duras"
                             ],
                             "categoryPageBanner": {
                                 "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
@@ -327,8 +355,7 @@
                             "description": "",
                             "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
                             "tags": [
-                                "cat-1",
-                                "retail masivo"
+                                "cat-6", "consumibles", "ribbons"
                             ],
                             "categoryPageBanner": {
                                 "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
@@ -345,8 +372,7 @@
                     "description": "",
                     "coverImage": "https://lh3.googleusercontent.com/d/1BtOIDVDKDCcTv5CZIfl3fruoNq2u-Px_",
                     "tags": [
-                        "cat-1",
-                        "retail masivo"
+                        "cat-6", "equipos"
                     ],
                     "categoryPageBanner": {
                         "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
@@ -361,8 +387,7 @@
                     "description": "",
                     "coverImage": "https://lh3.googleusercontent.com/d/1BtOIDVDKDCcTv5CZIfl3fruoNq2u-Px_",
                     "tags": [
-                        "cat-1",
-                        "retail masivo"
+                        "cat-6", "software"
                     ],
                     "categoryPageBanner": {
                         "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
@@ -371,12 +396,7 @@
                     },
                     "subCategory": null
                 }
-            ],
-            "categoryPageBanner": {
-                "coverImage": "https://lh3.googleusercontent.com/d/1l6V7jESdJdJZ1Wpyb2x_oU85R-1RaMq6",
-                "title": "Nuestros Productos y Servicios",
-                "subtitle": "Descubra nuestra amplia gama de soluciones tecnológicas para retail"
-            }
+            ]
         },
         {
             "id": "7",
@@ -395,7 +415,7 @@
         },
         {
             "id": "8",
-            "name": "Servicio Técnico",
+            "name": "Servicio técnico",
             "description": "Nuestro equipo de técnicos certificados brinda soporte integral: instalación profesional, mantenimiento preventivo, correctivo y asesoría continua para garantizar el óptimo rendimiento de todos los sistemas implementados.",
             "coverImage": "https://lh3.googleusercontent.com/d/1PwXURQJgt1qF4BZ_jehGZd7QxwpfWyLE",
             "tags": [
@@ -446,7 +466,7 @@
         },
         {
             "id": "0004",
-            "category": "1-1",
+            "category": "1-3",
             "rating": 5,
             "name": "Super Pencil",
             "subtitle": "",
@@ -464,7 +484,7 @@
         },
         {
             "id": "0005",
-            "category": "1-1",
+            "category": "1-3",
             "rating": 5,
             "name": "Super Tag",
             "subtitle": "",
@@ -482,7 +502,7 @@
         },
         {
             "id": "0006",
-            "category": "1-1",
+            "category": "1-3",
             "rating": 5,
             "name": "Pencil Flat",
             "subtitle": "",
@@ -500,7 +520,7 @@
         },
         {
             "id": "0007",
-            "category": "1-1",
+            "category": "1-3",
             "rating": 5,
             "name": "Detacher Manual",
             "subtitle": "",
@@ -518,7 +538,7 @@
         },
         {
             "id": "0008",
-            "category": "1-1",
+            "category": "1-3",
             "rating": 5,
             "name": "Detacher Eléctrico",
             "subtitle": "",
@@ -536,7 +556,7 @@
         },
         {
             "id": "0009",
-            "category": "1-1",
+            "category": "1-3",
             "rating": 5,
             "name": "Desactivador Stand Alone",
             "subtitle": "",
@@ -554,7 +574,7 @@
         },
         {
             "id": "0010",
-            "category": "1-1",
+            "category": "1-3",
             "rating": 5,
             "name": "Verificador",
             "subtitle": "",
@@ -572,7 +592,7 @@
         },
         {
             "id": "0033",
-            "category": "1-1",
+            "category": "1-3",
             "rating": 5,
             "name": "Detacher",
             "subtitle": "",
@@ -590,7 +610,7 @@
         },
         {
             "id": "0050",
-            "category": "1-1",
+            "category": "1-3",
             "rating": 5,
             "name": "Multidetacher",
             "subtitle": "",
@@ -661,7 +681,7 @@
         },
         {
             "id": "0015",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Etiquetas duras EAS RF",
             "subtitle": "",
@@ -680,7 +700,7 @@
         },
         {
             "id": "0016",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Etiquetas de papel EAS RF",
             "subtitle": "",
@@ -699,7 +719,7 @@
         },
         {
             "id": "0033",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Detacher",
             "subtitle": "",
@@ -717,7 +737,7 @@
         },
         {
             "id": "0034",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Chassis",
             "subtitle": "",
@@ -733,7 +753,7 @@
         },
         {
             "id": "0035",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Bottle Tag",
             "subtitle": "",
@@ -751,7 +771,7 @@
         },
         {
             "id": "0036",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Pin",
             "subtitle": "",
@@ -768,7 +788,7 @@
         },
         {
             "id": "0037",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Lazo",
             "subtitle": "",
@@ -787,7 +807,7 @@
         },
         {
             "id": "0038",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "CanClip",
             "subtitle": "",
@@ -807,7 +827,7 @@
         },
         {
             "id": "0039",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Optical Tag Small",
             "subtitle": "",
@@ -825,7 +845,7 @@
         },
         {
             "id": "0040",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Spider",
             "subtitle": "",
@@ -844,7 +864,7 @@
         },
         {
             "id": "0041",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Malla",
             "subtitle": "",
@@ -863,7 +883,7 @@
         },
         {
             "id": "0042",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Seguridad de Tarros de Leche",
             "subtitle": "",
@@ -881,7 +901,7 @@
         },
         {
             "id": "0043",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Ganchera",
             "subtitle": "",
@@ -899,7 +919,7 @@
         },
         {
             "id": "0044",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Safer",
             "subtitle": "",
@@ -917,7 +937,7 @@
         },
         {
             "id": "0045",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Mini Pencil",
             "subtitle": "",
@@ -936,7 +956,7 @@
         },
         {
             "id": "0048",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Micro Detacher",
             "subtitle": "",
@@ -953,7 +973,7 @@
         },
         {
             "id": "0049",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Llave de Stop Lock",
             "subtitle": "",
@@ -972,7 +992,7 @@
         },
         {
             "id": "0050",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Multidetacher",
             "subtitle": "",
@@ -990,7 +1010,7 @@
         },
         {
             "id": "0051",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Etiqueta Dura Maxi",
             "subtitle": "",
@@ -1008,7 +1028,7 @@
         },
         {
             "id": "0052",
-            "category": "1-2",
+            "category": "1-3",
             "rating": 5,
             "name": "Optical Tag",
             "subtitle": "",
