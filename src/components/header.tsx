@@ -49,7 +49,7 @@ const SubMenu = ({
           {subCategory.subCategory && subCategory.subCategory.length > 0 ? (
             <Accordion type="single" collapsible className="w-full">
               <AccordionItem value={subCategory.id} className="border-b-0">
-                <div className="flex items-center justify-between hover:bg-accent rounded-md">
+                <div className="flex items-center justify-between hover:bg-accent hover:text-accent-foreground rounded-md">
                   <AccordionTrigger className="py-2 px-3 flex-1 text-left text-sm font-medium hover:no-underline [&[data-state=open]>svg]:rotate-90">
                     {subCategory.name}
                   </AccordionTrigger>
@@ -65,7 +65,7 @@ const SubMenu = ({
           ) : (
             <Link
               href={`/category/${subCategory.id}`}
-              className="block py-2 px-3 text-sm font-medium hover:bg-accent rounded-md"
+              className="block py-2 px-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md"
               onClick={onLinkClick}
             >
               {subCategory.name}
@@ -91,7 +91,7 @@ const DesktopSubMenuItem = ({ item }: { item: Category | SubCategory }) => {
 
   const itemContent = (
       <div
-        className="flex items-center justify-between text-sm p-3 hover:bg-accent rounded-md"
+        className="flex items-center justify-between text-sm p-3 hover:bg-accent hover:text-accent-foreground rounded-md"
       >
         <span
           className={cn(
@@ -198,9 +198,11 @@ export default function Header() {
                 }
                 return (
                   <NavigationMenuItem key={link.id}>
-                    <NavigationMenuLink href={link.redirects} className={navigationMenuTriggerStyle()}>
-                        {link.name}
-                    </NavigationMenuLink>
+                    <Link href={link.redirects} legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            {link.name}
+                        </NavigationMenuLink>
+                    </Link>
                   </NavigationMenuItem>
                 );
               })}
@@ -269,7 +271,7 @@ export default function Header() {
                                           value={category.id}
                                           className="border-b-0"
                                         >
-                                          <div className="flex items-center justify-between hover:bg-accent rounded-md">
+                                          <div className="flex items-center justify-between hover:bg-accent hover:text-accent-foreground rounded-md">
                                             <AccordionTrigger className="py-2 px-3 flex-1 text-left text-sm font-medium hover:no-underline [&[data-state=open]>svg]:rotate-90">
                                               {category.name}
                                             </AccordionTrigger>
@@ -289,7 +291,7 @@ export default function Header() {
                                     ) : (
                                       <Link
                                         href={`/category/${category.id}`}
-                                        className="block py-2 px-3 text-sm font-medium hover:bg-accent rounded-md"
+                                        className="block py-2 px-3 text-sm font-medium hover:bg-accent hover:text-accent-foreground rounded-md"
                                         onClick={handleMobileLinkClick}
                                       >
                                         {category.name}
