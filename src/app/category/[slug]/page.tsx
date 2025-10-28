@@ -5,13 +5,14 @@ import { getCategoryBySlug, getProductsByCategoryId, Category, Product, SubCateg
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Image from 'next/image';
-import { notFound, useSearchParams, useRouter, usePathname } from 'next/navigation';
+import { notFound, useSearchParams, useRouter, usePathname, useParams, useSelectedLayoutSegment } from 'next/navigation';
 import { Star } from 'lucide-react';
 import ProductModal from '@/components/product-modal';
 import Link from 'next/link';
 
-export default function CategoryPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function CategoryPage() {
+  const params = useParams();
+  const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug;
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -19,7 +20,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
-  const category = getCategoryBySlug(slug);
+  const category = slug ? getCategoryBySlug(slug) : null;
 
   useEffect(() => {
     if (productParam && category) {
