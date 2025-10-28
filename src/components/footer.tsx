@@ -22,7 +22,6 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           
-          {/* Column 1: Logo, Description, Socials */}
           <div className="space-y-4">
             <Link href="/" className="inline-block mb-4">
               <Image 
@@ -46,7 +45,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
           <div>
             <h4 className="font-headline font-semibold text-white mb-4">Enlaces Rápidos</h4>
             <ul className="space-y-2">
@@ -61,11 +59,10 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Categories */}
           <div>
             <h4 className="font-headline font-semibold text-white mb-4">Categorías</h4>
             <ul className="space-y-2">
-              {categoriesData.slice(0, 4).map(category => (
+              {categoriesData.map(category => (
                 <li key={category.id}>
                   <Link href={`/category/${category.id}`} className="flex items-center text-sm hover:text-white transition-colors">
                     <ArrowRight className="h-3 w-3 mr-2" />
@@ -76,7 +73,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact */}
           <div>
             <h4 className="font-headline font-semibold text-white mb-4">Contacto</h4>
             <ul className="space-y-3">
@@ -106,3 +102,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+    

@@ -67,11 +67,11 @@
             ]
         },
         "landingBanner": {
-            "showBanner": true,
+            "showBanner": false,
             "bannerImage": "https://lh3.googleusercontent.com/d/1q0ZMKh0CXdAQ4Y4096X0Ht5pqGXS4UVn"
         },
         "whyChooseUs": {
-            "showThisSection": true,
+            "showThisSection": false,
             "title": "¿Por qué elegirnos?",
             "subtitle": "Somos líderes en soluciones tecnológicas para retail en Ecuador, ofreciendo productos y servicios de alta calidad.",
             "cards": [
@@ -105,12 +105,12 @@
             "title": "Categorías de nuestros productos"
         },
         "allStateCoverage": {
-            "showThisSection": true,
+            "showThisSection": false,
             "title": "ENVIOS A TODO EL PAÍS",
             "image": "https://thumbs.dreamstime.com/b/dot-ecuador-map-rojo-118731771.jpg"
         },
         "techServiceSection": {
-            "showThisSection": true,
+            "showThisSection": false,
             "backgroundImage": "https://images.pexels.com/photos/3912981/pexels-photo-3912981.jpeg",
             "title": "SERVICIO TÉCNICO",
             "subtitle": "Es importante cuidar de la inversión de nuestros clientes por lo que sugerimos siempre el mantenimiento preventivo y correctivo de los dispositivos antihurto.",
@@ -1093,13 +1093,13 @@
     ],
     "businessInformation": {
         "websiteDomain": "https://retailpointecuador.com/",
-        "whatsappNumber": "0998257767",
+        "whatsappNumber": "0990875618",
         "contactEmail": "info@retailpointecuador.com",
         "address": "Cdla. Albatros, Mz 4 Solar 14, Oficina 2 - Planta alta; Av. de las Américas y Plaza Dañin",
         "businessHours": "Lunes a Viernes: 9:00 AM - 6:00 PM Sábados: 9:00 AM - 1:00 PM",
         "socialMedia": {
-            "facebook": "",
-            "instagram": "",
+            "facebook": "https://www.facebook.com/RetailPointEcuador",
+            "instagram": "https://www.instagram.com/retailpointecuador/",
             "youtube": ""
         },
         "pdfCatalogs": [
@@ -1110,3 +1110,5 @@
         ]
     }
 }
+
+    
