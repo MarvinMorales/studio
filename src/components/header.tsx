@@ -92,7 +92,6 @@ const DesktopSubMenuItem = ({ item }: { item: Category | SubCategory }) => {
   const itemContent = (
       <div
         className="flex items-center justify-between text-sm p-3 hover:bg-accent rounded-md"
-        onClick={handleToggle}
       >
         <span
           className={cn(
@@ -116,7 +115,7 @@ const DesktopSubMenuItem = ({ item }: { item: Category | SubCategory }) => {
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
         {hasSubcategories ? (
-            itemContent
+            <div onClick={handleToggle}>{itemContent}</div>
         ) : (
             <Link href={`/category/${item.id}`} passHref asChild>
                 <NavigationMenuLink className="w-full justify-start font-normal">
@@ -199,11 +198,9 @@ export default function Header() {
                 }
                 return (
                   <NavigationMenuItem key={link.id}>
-                    <Link href={link.redirects} legacyBehavior={false} passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            {link.name}
-                        </NavigationMenuLink>
-                    </Link>
+                    <NavigationMenuLink href={link.redirects} className={navigationMenuTriggerStyle()}>
+                        {link.name}
+                    </NavigationMenuLink>
                   </NavigationMenuItem>
                 );
               })}
