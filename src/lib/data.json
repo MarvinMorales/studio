@@ -14,11 +14,6 @@
                     "redirects": "/products"
                 },
                 {
-                    "id": "3",
-                    "name": "Catalogo (PDFs)",
-                    "redirects": "/catalog"
-                },
-                {
                     "id": "4",
                     "name": "Contacto",
                     "redirects": "/contact"
