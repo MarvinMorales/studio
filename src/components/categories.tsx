@@ -15,22 +15,22 @@ export default function Categories() {
             Explora nuestra amplia gama de soluciones tecnológicas para retail.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="flex overflow-x-auto space-x-6 pb-4 -mx-4 px-4">
           {categories.map((category) => (
             <Link
               key={category.id}
               href={`/category/${category.id}`}
-              className="group relative rounded-lg overflow-hidden h-64 shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              className="group relative flex-shrink-0 w-64 h-80 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <Image
                   src={category.coverImage}
                   alt={category.name}
                   fill
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  sizes="256px"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-primary/60 transition-colors duration-300" />
-              <div className="absolute inset-0 flex items-center justify-center p-4">
+              <div className="absolute inset-0 flex items-end justify-center p-4">
                   <h3 className="text-xl font-bold text-center font-headline text-white drop-shadow-md">
                   {category.name}
                   </h3>
