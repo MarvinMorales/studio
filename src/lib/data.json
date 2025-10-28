@@ -115,6 +115,11 @@
             "title": "SERVICIO TÉCNICO",
             "subtitle": "Es importante cuidar de la inversión de nuestros clientes por lo que sugerimos siempre el mantenimiento preventivo y correctivo de los dispositivos antihurto.",
             "button": "SOLICITAR"
+        },
+        "successCasesSection": {
+            "showThisSection": true,
+            "title": "Casos de Éxito",
+            "subtitle": "Descubre cómo hemos ayudado a nuestros clientes a proteger y optimizar sus negocios."
         }
     },
     "categories": [
@@ -1093,7 +1098,7 @@
     ],
     "businessInformation": {
         "websiteDomain": "https://retailpointecuador.com/",
-        "whatsappNumber": "0990875618",
+        "whatsappNumber": "593990875618",
         "contactEmail": "info@retailpointecuador.com",
         "address": "Cdla. Albatros, Mz 4 Solar 14, Oficina 2 - Planta alta; Av. de las Américas y Plaza Dañin",
         "businessHours": "Lunes a Viernes: 9:00 AM - 6:00 PM Sábados: 9:00 AM - 1:00 PM",
@@ -1108,7 +1113,39 @@
                 "link": "https://drive.google.com/file/d/1UPu8FZKzmHyB1wryx3ZEZTRPEeOZD4rV/view?usp=drive_link"
             }
         ]
-    }
+    },
+    "successCases": [
+        {
+            "id": "sc1",
+            "clientName": "Tienda de Moda Urbana",
+            "coverImage": "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?q=80&w=2070&auto=format&fit=crop",
+            "images": [
+                "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1974&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1560298803-1d0c5a2c4574?q=80&w=2070&auto=format&fit=crop"
+            ],
+            "description": "Implementamos un sistema antihurto con tecnología Acusto-Magnética que redujo las pérdidas por hurto en un 80%. La instalación de antenas discretas y etiquetas de alta seguridad no solo protegió la mercancía, sino que también mejoró la confianza del personal y la experiencia de compra del cliente. El sistema se integró perfectamente con la estética de la tienda, manteniendo un ambiente moderno y acogedor. Nuestro cliente reportó un retorno de inversión en menos de seis meses, gracias a la drástica disminución de pérdidas y al aumento de la sensación de seguridad en el local."
+        },
+        {
+            "id": "sc2",
+            "clientName": "Supermercado de Proximidad",
+            "coverImage": "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?q=80&w=1974&auto=format&fit=crop",
+            "images": [
+                "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?q=80&w=1974&auto=format&fit=crop"
+            ],
+            "description": "Modernizamos la gestión de precios con nuestro sistema de etiquetas electrónicas (ESL). Este cambio permitió al supermercado actualizar precios en tiempo real de forma centralizada, eliminando errores manuales y ahorrando cientos de horas de trabajo al mes. Las promociones y ofertas ahora se implementan de manera instantánea y programada, optimizando las estrategias de venta y mejorando la rotación de inventario. La claridad y precisión de los precios en las góndolas fortaleció la confianza del consumidor y agilizó el proceso de compra, resultando en una mejor experiencia general."
+        },
+        {
+            "id": "sc3",
+            "clientName": "Centro Educativo Innovador",
+            "coverImage": "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
+            "images": [
+                "https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop",
+                "https://images.unsplash.com/photo-1531482615713-2c65a000c6c5?q=80&w=2070&auto=format&fit=crop"
+            ],
+            "description": "Instalamos una Pizarra Interactiva DEEPHUB para transformar sus aulas y salas de reuniones. Esta herramienta todo-en-uno facilitó la colaboración, permitiendo presentaciones dinámicas, videoconferencias fluidas y anotaciones en tiempo real sobre cualquier contenido. Los educadores y el personal administrativo destacaron la facilidad de uso y la capacidad de la pizarra para fomentar la participación y el trabajo en equipo. Las clases se volvieron más interactivas y las reuniones corporativas más productivas, consolidando al centro educativo como un referente en tecnología e innovación."
+        }
+    ]
 }
 
     

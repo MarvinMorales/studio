@@ -6,6 +6,7 @@ import Footer from '@/components/footer';
 import Clients from '@/components/clients';
 import { websiteData } from '@/lib/data';
 import VideoSection from '@/components/video-section';
+import SuccessCases from '@/components/success-cases';
 
 
 export default function Home() {
@@ -17,9 +18,12 @@ export default function Home() {
         {websiteData.videoSection.showThisSection && <VideoSection />}
         {websiteData.fastCategoriesSection.showThisSection && <Categories />}
         <News />
+        {websiteData.successCasesSection.showThisSection && <SuccessCases />}
         <Clients />
       </main>
       <Footer />
     </div>
   );
 }
+
+    

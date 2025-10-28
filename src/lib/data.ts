@@ -83,11 +83,20 @@ export type Client = {
   clientImage: string;
 };
 
+export type SuccessCase = {
+    id: string;
+    clientName: string;
+    coverImage: string;
+    images: string[];
+    description: string;
+};
+
 export const websiteData = data.website;
 export const categoriesData: Category[] = data.categories;
 export const productsData: Product[] = data.allProducts;
 export const instagramPostsData: InstagramPost[] = data.instagramLatestPosts;
 export const clientsData: Client[] = data.ourClients;
+export const successCasesData: SuccessCase[] = data.successCases;
 
 function findCategoryRecursive(categories: (Category | SubCategory)[], slug: string): Category | SubCategory | null {
   for (const category of categories) {
@@ -114,3 +123,5 @@ export function getProductsByCategoryId(categoryId: string) {
 }
 
 export const allProducts: Product[] = data.allProducts;
+
+    
