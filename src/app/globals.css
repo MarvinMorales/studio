@@ -10,13 +10,13 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 215 28% 17%; /* Azul grisáceo */
+    --primary: 210 80% 50%; /* Azul más claro */
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%; /* Gris claro */
     --secondary-foreground: 215 28% 17%;
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 215 28% 17%; /* Azul grisáceo */
+    --accent: 210 80% 50%; /* Azul más claro */
     --accent-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
