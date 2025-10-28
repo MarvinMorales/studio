@@ -122,6 +122,21 @@ export function getProductsByCategoryId(categoryId: string) {
     return productsData.filter(product => product.category === categoryId);
 }
 
+function getProductsRecursive(category: Category | SubCategory): Product[] {
+  let products = getProductsByCategoryId(category.id);
+  if (category.subCategory) {
+    for (const sub of category.subCategory) {
+      products = products.concat(getProductsRecursive(sub));
+    }
+  }
+  return products;
+}
+
+export function getProductsForCategoryAndSubcategories(category: Category | SubCategory): Product[] {
+    return getProductsRecursive(category);
+}
+
+
 export const allProducts: Product[] = data.allProducts;
 
 function getAllCategories(categories: (Category | SubCategory)[]): (Category | SubCategory)[] {

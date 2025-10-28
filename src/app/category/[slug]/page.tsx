@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { getCategoryBySlug, getProductsByCategoryId, Category, Product, SubCategory, allProducts } from '@/lib/data';
+import { getCategoryBySlug, getProductsByCategoryId, Category, Product, SubCategory, allProducts, getProductsForCategoryAndSubcategories } from '@/lib/data';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Image from 'next/image';
@@ -22,23 +22,25 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   const category = getCategoryBySlug(slug);
 
   useEffect(() => {
-    if (productParam) {
-      const productToShow = allProducts.find(p => p.id === productParam);
-      if (productToShow) {
-        setSelectedProduct(productToShow);
-      } else {
-        handleCloseModal();
-      }
+    if (productParam && category) {
+        const allCategoryProducts = getProductsForCategoryAndSubcategories(category);
+        const productToShow = allCategoryProducts.find(p => p.id === productParam);
+        if (productToShow) {
+            setSelectedProduct(productToShow);
+        } else {
+            // If product not found, maybe it's in another category, but for now, just close modal
+            handleCloseModal();
+        }
     } else {
       setSelectedProduct(null);
     }
-  }, [productParam]);
+  }, [productParam, category]);
 
   if (!category) {
     notFound();
   }
 
-  const products = getProductsByCategoryId(category.id);
+  const products = getProductsForCategoryAndSubcategories(category);
   const subCategories = 'subCategory' in category && category.subCategory ? category.subCategory : [];
 
   const handleProductClick = (product: Product) => {
@@ -106,7 +108,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
                     {category.description && <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">{category.description}</p>}
                 </div>
                 
-                {subCategories && subCategories.length > 0 ? renderSubCategories(subCategories) : (
+                {subCategories && subCategories.length > 0 && products.length === 0 ? renderSubCategories(subCategories) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {products.map((product) => (
                         <div 
