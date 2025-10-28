@@ -24,7 +24,7 @@ export default function Clients() {
           {duplicatedLogos.map((logo, index) => (
             <div
               key={`${logo.id}-${index}`}
-              className="flex-shrink-0 mx-6"
+              className="flex-shrink-0 mx-4"
             >
               <div className="bg-card rounded-full p-2 shadow-md w-24 h-24 flex items-center justify-center overflow-hidden">
                 <Image
