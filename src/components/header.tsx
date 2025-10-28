@@ -90,62 +90,49 @@ const DesktopSubMenuItem = ({ item }: { item: Category | SubCategory }) => {
   };
 
   const itemContent = (
-    <div
-      className="flex items-center justify-between text-sm"
-      onClick={handleToggle}
-    >
-      <span
-        className={cn(
-          "flex-1 p-3",
-          hasSubcategories && "cursor-pointer",
-          !hasSubcategories && "hover:bg-accent rounded-md"
-        )}
+      <div
+        className="flex items-center justify-between text-sm p-3 hover:bg-accent rounded-md"
+        onClick={handleToggle}
       >
-        {item.name}
-      </span>
-      {hasSubcategories && (
-        <Button
-          variant="ghost"
-          size="sm"
-          className="w-9 p-0"
+        <span
+          className={cn(
+            "flex-1",
+            hasSubcategories && "cursor-pointer"
+          )}
         >
-          <ChevronRight
-            className={cn(
-              "h-4 w-4 shrink-0 transition-transform duration-200",
-              isOpen && "rotate-90"
-            )}
-          />
-          <span className="sr-only">Toggle</span>
-        </Button>
-      )}
-    </div>
+          {item.name}
+        </span>
+        {hasSubcategories && (
+            <ChevronRight
+              className={cn(
+                "h-4 w-4 shrink-0 transition-transform duration-200",
+                isOpen && "rotate-90"
+              )}
+            />
+        )}
+      </div>
   );
 
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
-      {hasSubcategories ? (
-        itemContent
-      ) : (
-        <Link href={`/category/${item.id}`} passHref>
-          <NavigationMenuLink
-            className={cn(
-              navigationMenuTriggerStyle(),
-              "w-full justify-start font-normal"
-            )}
-          >
-            {itemContent}
-          </NavigationMenuLink>
-        </Link>
-      )}
-      {hasSubcategories && (
-        <CollapsibleContent>
-          <div className="pl-4 border-l">
-            {item.subCategory?.map((subItem) => (
-              <DesktopSubMenuItem key={subItem.id} item={subItem} />
-            ))}
-          </div>
-        </CollapsibleContent>
-      )}
+        {hasSubcategories ? (
+            itemContent
+        ) : (
+            <Link href={`/category/${item.id}`} passHref asChild>
+                <NavigationMenuLink className="w-full justify-start font-normal">
+                    {itemContent}
+                </NavigationMenuLink>
+            </Link>
+        )}
+        {hasSubcategories && (
+            <CollapsibleContent>
+            <div className="pl-4 border-l">
+                {item.subCategory?.map((subItem) => (
+                <DesktopSubMenuItem key={subItem.id} item={subItem} />
+                ))}
+            </div>
+            </CollapsibleContent>
+        )}
     </Collapsible>
   );
 };
@@ -212,12 +199,10 @@ export default function Header() {
                 }
                 return (
                   <NavigationMenuItem key={link.id}>
-                    <Link href={link.redirects} passHref legacyBehavior>
-                      <NavigationMenuLink
-                        className={navigationMenuTriggerStyle()}
-                      >
-                        {link.name}
-                      </NavigationMenuLink>
+                    <Link href={link.redirects} legacyBehavior={false} passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            {link.name}
+                        </NavigationMenuLink>
                     </Link>
                   </NavigationMenuItem>
                 );
