@@ -120,6 +120,24 @@
             "showThisSection": true,
             "title": "Casos de Éxito",
             "subtitle": "Descubre cómo hemos ayudado a nuestros clientes a proteger y optimizar sus negocios."
+        },
+        "businessInformation": {
+            "websiteDomain": "https://retailpointecuador.com/",
+            "whatsappNumber": "593990875618",
+            "contactEmail": "info@retailpointecuador.com",
+            "address": "Cdla. Albatros, Mz 4 Solar 14, Oficina 2 - Planta alta; Av. de las Américas y Plaza Dañin",
+            "businessHours": "Lunes a Viernes: 9:00 AM - 6:00 PM Sábados: 9:00 AM - 1:00 PM",
+            "socialMedia": {
+                "facebook": "https://www.facebook.com/RetailPointEcuador",
+                "instagram": "https://www.instagram.com/retailpointecuador/",
+                "youtube": ""
+            },
+            "pdfCatalogs": [
+                {
+                    "name": "Catálogo Líneas Retail Point Ecuador",
+                    "link": "https://drive.google.com/file/d/1UPu8FZKzmHyB1wryx3ZEZTRPEeOZD4rV/view?usp=drive_link"
+                }
+            ]
         }
     },
     "categories": [
@@ -1096,24 +1114,6 @@
             "clientImage": "https://lh3.googleusercontent.com/d/16hUrX-LhDHJkRp6Oac325rIOo1GNqqXj"
         }
     ],
-    "businessInformation": {
-        "websiteDomain": "https://retailpointecuador.com/",
-        "whatsappNumber": "593990875618",
-        "contactEmail": "info@retailpointecuador.com",
-        "address": "Cdla. Albatros, Mz 4 Solar 14, Oficina 2 - Planta alta; Av. de las Américas y Plaza Dañin",
-        "businessHours": "Lunes a Viernes: 9:00 AM - 6:00 PM Sábados: 9:00 AM - 1:00 PM",
-        "socialMedia": {
-            "facebook": "https://www.facebook.com/RetailPointEcuador",
-            "instagram": "https://www.instagram.com/retailpointecuador/",
-            "youtube": ""
-        },
-        "pdfCatalogs": [
-            {
-                "name": "Catálogo Líneas Retail Point Ecuador",
-                "link": "https://drive.google.com/file/d/1UPu8FZKzmHyB1wryx3ZEZTRPEeOZD4rV/view?usp=drive_link"
-            }
-        ]
-    },
     "successCases": [
         {
             "id": "sc1",
