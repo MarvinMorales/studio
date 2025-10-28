@@ -124,4 +124,34 @@ export function getProductsByCategoryId(categoryId: string) {
 
 export const allProducts: Product[] = data.allProducts;
 
-    
+function getAllCategories(categories: (Category | SubCategory)[]): (Category | SubCategory)[] {
+    let all: (Category | SubCategory)[] = [];
+    for (const category of categories) {
+      all.push(category);
+      if (category.subCategory) {
+        all = all.concat(getAllCategories(category.subCategory));
+      }
+    }
+    return all;
+}
+
+export function searchProductsAndCategories(query: string) {
+    const lowerCaseQuery = query.toLowerCase();
+  
+    const allCategories = getAllCategories(categoriesData);
+
+    const filteredCategories = allCategories.filter(category =>
+      category.name.toLowerCase().includes(lowerCaseQuery)
+    );
+  
+    const filteredProducts = allProducts.filter(product =>
+      product.name.toLowerCase().includes(lowerCaseQuery) ||
+      product.description.toLowerCase().includes(lowerCaseQuery) ||
+      product.tags.some(tag => tag.toLowerCase().includes(lowerCaseQuery))
+    );
+  
+    return {
+      categories: filteredCategories,
+      products: filteredProducts,
+    };
+  }

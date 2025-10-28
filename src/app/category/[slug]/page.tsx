@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { getCategoryBySlug, getProductsByCategoryId, Category, Product, SubCategory } from '@/lib/data';
+import { getCategoryBySlug, getProductsByCategoryId, Category, Product, SubCategory, allProducts } from '@/lib/data';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Image from 'next/image';
@@ -22,20 +22,17 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
   const category = getCategoryBySlug(slug);
 
   useEffect(() => {
-    if (productParam && category) {
-      const products = getProductsByCategoryId(category.id);
-      const productToShow = products.find(p => p.id === productParam);
+    if (productParam) {
+      const productToShow = allProducts.find(p => p.id === productParam);
       if (productToShow) {
         setSelectedProduct(productToShow);
       } else {
-        // If product not found in current category, maybe check all products
-        // For now, we just close the modal if the product is not in the category
         handleCloseModal();
       }
     } else {
       setSelectedProduct(null);
     }
-  }, [productParam, category]);
+  }, [productParam]);
 
   if (!category) {
     notFound();
