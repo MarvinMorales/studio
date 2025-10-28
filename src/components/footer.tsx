@@ -4,7 +4,7 @@ import { websiteData, categoriesData } from '@/lib/data';
 import Image from 'next/image';
 
 export default function Footer() {
-  const { businessInformation } = websiteData;
+  const { businessInformation, header } = websiteData;
 
   if (!businessInformation) {
     return null;
@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block mb-4">
               <Image 
-                src="https://retailpointecuador.com/wp-content/uploads/2024/02/Recurso-3@3x.png" 
+                src={header.logo} 
                 alt="Retail Point Logo" 
                 width={150} 
                 height={40} 
@@ -102,5 +102,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-    
