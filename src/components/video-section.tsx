@@ -21,7 +21,7 @@ export default function VideoSection() {
                      <h2 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
                         {videoSection.title}
                     </h2>
-                    <p className="mt-4 max-w-2xl text-muted-foreground md:text-lg">
+                    <p className="mt-4 max-w-2xl text-muted-foreground md:text-lg" style={{ whiteSpace: 'pre-line' }}>
                         {videoSection.description}
                     </p>
                 </div>
