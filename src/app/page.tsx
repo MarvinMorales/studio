@@ -15,8 +15,8 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         {websiteData.heroSection.showThisSection && <Hero />}
-        {websiteData.videoSection.showThisSection && <VideoSection />}
         {websiteData.fastCategoriesSection.showThisSection && <Categories />}
+        {websiteData.videoSection.showThisSection && <VideoSection />}
         <News />
         {websiteData.successCasesSection.showThisSection && <SuccessCases />}
         <Clients />
