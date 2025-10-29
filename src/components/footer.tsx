@@ -26,7 +26,7 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-4">
               <Image 
                 src={header.logo} 
-                alt="Retail Point Logo" 
+                alt="One Security Logo" 
                 width={150} 
                 height={40} 
                 className="object-contain filter brightness-0 invert" 
@@ -93,7 +93,7 @@ export default function Footer() {
 
         </div>
         <div className="border-t border-gray-700 mt-8 py-6 flex flex-col sm:flex-row justify-between items-center text-center sm:text-left">
-          <p className="text-xs text-gray-400">&copy; {new Date().getFullYear()} RetailPoint Ecuador. Todos los derechos reservados.</p>
+          <p className="text-xs text-gray-400">&copy; {new Date().getFullYear()} One Security. Todos los derechos reservados.</p>
           <p className="text-xs text-gray-400 mt-2 sm:mt-0">
             Diseñado con <span className="text-red-500">♥</span> en Ecuador
           </p>
