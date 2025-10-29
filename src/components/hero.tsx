@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect, useCallback } from 'react';
@@ -30,7 +31,7 @@ export default function Hero() {
   if (!slides || slides.length === 0) return null;
 
   return (
-    <section className="relative w-full aspect-[16/9] sm:aspect-[21/9] overflow-hidden">
+    <section className="relative w-full h-[70vh] overflow-hidden">
       {slides.map((slide, index) => (
         <div 
           key={slide.id}
