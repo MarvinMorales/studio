@@ -1159,6 +1159,33 @@
                 "https://images.unsplash.com/photo-1531482615713-2c65a000c6c5?q=80&w=2070&auto=format&fit=crop"
             ],
             "description": "Instalamos una Pizarra Interactiva DEEPHUB para transformar sus aulas y salas de reuniones. Esta herramienta todo-en-uno facilitó la colaboración, permitiendo presentaciones dinámicas, videoconferencias fluidas y anotaciones en tiempo real sobre cualquier contenido. Los educadores y el personal administrativo destacaron la facilidad de uso y la capacidad de la pizarra para fomentar la participación y el trabajo en equipo. Las clases se volvieron más interactivas y las reuniones corporativas más productivas, consolidando al centro educativo como un referente en tecnología e innovación."
+        },
+        {
+            "id": "sc4",
+            "clientName": "Supermercados Tia",
+            "coverImage": "https://images.unsplash.com/photo-1580913428023-02c695666d61?q=80&w=2070&auto=format&fit=crop",
+            "images": [
+                "https://images.unsplash.com/photo-1580913428023-02c695666d61?q=80&w=2070&auto=format&fit=crop"
+            ],
+            "description": "Implementamos soluciones de seguridad y optimización de procesos que permitieron a Supermercados Tía reducir pérdidas y mejorar la experiencia de compra en sus múltiples sucursales a nivel nacional."
+        },
+        {
+            "id": "sc5",
+            "clientName": "Coure",
+            "coverImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop",
+            "images": [
+                "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop"
+            ],
+            "description": "Para Coure, una prestigiosa marca de accesorios, instalamos sistemas de seguridad EAS que se integran perfectamente con la estética de sus tiendas, protegiendo productos de alto valor sin afectar la exhibición."
+        },
+        {
+            "id": "sc6",
+            "clientName": "Hipermercados Coral",
+            "coverImage": "https://images.unsplash.com/photo-1565331614224-2b6d5f13a5f3?q=80&w=2070&auto=format&fit=crop",
+            "images": [
+                "https://images.unsplash.com/photo-1565331614224-2b6d5f13a5f3?q=80&w=2070&auto=format&fit=crop"
+            ],
+            "description": "En Hipermercados Coral, desplegamos una solución integral de preciadores electrónicos y sistemas antihurto, mejorando la eficiencia operativa y reduciendo las pérdidas de manera significativa."
         }
     ]
 }
