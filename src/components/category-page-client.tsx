@@ -31,11 +31,13 @@ export default function CategoryPageClient({ category, products, subCategories }
         const productToShow = allCategoryProducts.find(p => p.id === productParam);
         if (productToShow) {
             setSelectedProduct(productToShow);
+            document.title = `${productToShow.name} | One Security`;
         } else {
             handleCloseModal();
         }
     } else {
       setSelectedProduct(null);
+      document.title = `${category.name} | One Security`;
     }
   }, [productParam, category]);
 
