@@ -25,38 +25,38 @@
             "slides": [
                 {
                     "id": 1,
-                    "image": "https://lh3.googleusercontent.com/d/1RED7ANTBFfFugFSbsw2SDEdxJlsgdiUE",
-                    "title": "",
-                    "subtitle": "",
+                    "image": "https://images.unsplash.com/photo-1588331305417-6b1c19d4b0f2?q=80&w=2070&auto=format&fit=crop",
+                    "title": "Soluciones Integrales de Seguridad Tecnológica",
+                    "subtitle": "Protegemos lo que más importa con tecnología de vanguardia.",
                     "cta": "Explorar Productos",
                     "showInfo": true,
                     "link": "/categories"
                 },
                 {
                     "id": 2,
-                    "image": "https://lh3.googleusercontent.com/d/16-lAW-6yLUYEjsqIwccCN50t9OinfcJh",
+                    "image": "https://images.unsplash.com/photo-1631049035773-7c83f6b4f74a?q=80&w=1974&auto=format&fit=crop",
                     "title": "",
                     "subtitle": "",
                     "cta": "Explorar Productos",
-                    "showInfo": true,
+                    "showInfo": false,
                     "link": "/categories"
                 },
                 {
                     "id": 3,
-                    "image": "https://lh3.googleusercontent.com/d/1TlfZZNEkCriEPJWPJALpwVJ4b3-fb7mG",
+                    "image": "https://images.unsplash.com/photo-1517418658198-05b0a395f8e3?q=80&w=2070&auto=format&fit=crop",
                     "title": "",
                     "subtitle": "",
                     "cta": "Explorar Productos",
-                    "showInfo": true,
+                    "showInfo": false,
                     "link": "/categories"
                 },
                 {
                     "id": 4,
-                    "image": "https://lh3.googleusercontent.com/d/1k_inUmqZ5vXGEdkJI3jQsLuNBP-DXNQU",
+                    "image": "https://images.unsplash.com/photo-1617783693433-a2a1b3a3d5f8?q=80&w=2070&auto=format&fit=crop",
                     "title": "",
                     "subtitle": "",
                     "cta": "Explorar Productos",
-                    "showInfo": true,
+                    "showInfo": false,
                     "link": "/categories"
                 }
             ]
