@@ -56,3 +56,41 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .paused {
+    animation-play-state: paused;
+  }
+  
+  @keyframes ticker {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-ticker {
+    animation: ticker 30s linear infinite;
+  }
+
+  .ticker-fade-left, .ticker-fade-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .ticker-fade-left {
+    left: 0;
+    background: linear-gradient(to right, hsl(var(--primary)), transparent);
+  }
+
+  .ticker-fade-right {
+    right: 0;
+    background: linear-gradient(to left, hsl(var(--primary)), transparent);
+  }
+}

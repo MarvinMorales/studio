@@ -1,44 +1,68 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { clientsData } from "@/lib/data";
-
-const duplicatedLogos = [...clientsData, ...clientsData];
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function Clients() {
+  const clientImages = clientsData;
+  const [paused, setPaused] = useState(false);
+
+  // Duplicate clients for infinite effect
+  const tickerClients = [...clientImages, ...clientImages];
+
   return (
-    <section id="clients" className="py-16 md:py-24 bg-secondary">
-      <div className="container mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-          Nuestros Clientes
+    <section className="bg-primary py-10">
+       <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-primary-foreground text-2xl font-bold text-center mb-6">
+            NUESTROS CLIENTES
         </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
-          Agradecemos por la confianza en nuestros sistemas
-        </p>
-      </div>
-      <div
-        className="relative mt-12 w-full overflow-hidden"
-        style={{ maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)" }}
-      >
-        <div className="flex animate-scroll">
-          {duplicatedLogos.map((logo, index) => (
+
+        <div
+            className="overflow-hidden relative"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+        >
+            {/* Edge fade filters */}
+            <div className="ticker-fade-left" />
+            <div className="ticker-fade-right" />
+
             <div
-              key={`${logo.id}-${index}`}
-              className="flex-shrink-0 mx-4"
+            className={`flex w-max gap-6 animate-ticker ${paused ? "paused" : ""}`}
             >
-              <div className="bg-card rounded-full p-2 shadow-md w-24 h-24 flex items-center justify-center overflow-hidden">
-                <Image
-                  src={logo.clientImage}
-                  alt={logo.name}
-                  width={80}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
+            {tickerClients.map((elem, i) => (
+                <TooltipProvider key={i}>
+                    <Tooltip>
+                        <TooltipTrigger asChild>
+                            <div className="w-20 h-20 bg-white rounded-full overflow-hidden border-2 border-white flex-shrink-0">
+                                <Image
+                                src={elem.clientImage}
+                                alt={elem.name}
+                                width={80}
+                                height={80}
+                                className="w-full h-full object-contain p-2"
+                                />
+                            </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                            <p>{elem.name}</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+            ))}
             </div>
-          ))}
         </div>
-      </div>
+
+        <p className="text-center text-primary-foreground font-semibold mt-6 text-sm md:text-base">
+            AGRADECEMOS POR LA CONFIANZA EN NUESTROS SISTEMAS
+        </p>
+       </div>
     </section>
   );
 }
