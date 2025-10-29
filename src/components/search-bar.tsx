@@ -58,7 +58,7 @@ export default function SearchBar({ onResultClick }: { onResultClick?: () => voi
   }, [searchRef]);
 
   return (
-    <div className="relative w-full max-w-lg" ref={searchRef}>
+    <div className="relative w-full max-w-xl" ref={searchRef}>
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
         <Input
