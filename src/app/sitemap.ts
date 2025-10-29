@@ -4,7 +4,7 @@ import { getAllCategories, categoriesData, websiteData } from '@/lib/data';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = websiteData.businessInformation.websiteDomain;
 
-  const staticRoutes = [
+  const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -37,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return {
         url: `${baseUrl}/category/${category.id}`,
         lastModified: new Date(),
-        changeFrequency: 'weekly',
+        changeFrequency: 'weekly' as 'weekly',
         priority: 0.9,
     }
   });
