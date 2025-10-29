@@ -139,7 +139,7 @@ export function getProductsForCategoryAndSubcategories(category: Category | SubC
 
 export const allProducts: Product[] = data.allProducts;
 
-function getAllCategories(categories: (Category | SubCategory)[]): (Category | SubCategory)[] {
+export function getAllCategories(categories: (Category | SubCategory)[]): (Category | SubCategory)[] {
     let all: (Category | SubCategory)[] = [];
     for (const category of categories) {
       all.push(category);
@@ -153,9 +153,9 @@ function getAllCategories(categories: (Category | SubCategory)[]): (Category | S
 export function searchProductsAndCategories(query: string) {
     const lowerCaseQuery = query.toLowerCase();
   
-    const allCategories = getAllCategories(categoriesData);
+    const allCategoriesList = getAllCategories(categoriesData);
 
-    const filteredCategories = allCategories.filter(category =>
+    const filteredCategories = allCategoriesList.filter(category =>
       category.name.toLowerCase().includes(lowerCaseQuery)
     );
   

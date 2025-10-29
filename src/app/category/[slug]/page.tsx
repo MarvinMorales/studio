@@ -1,7 +1,8 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
-import { getCategoryBySlug, getProductsByCategoryId, Category, Product, SubCategory, allProducts, getProductsForCategoryAndSubcategories } from '@/lib/data';
+import { getCategoryBySlug, getProductsByCategoryId, Category, Product, SubCategory, allProducts, getProductsForCategoryAndSubcategories, getAllCategories, categoriesData } from '@/lib/data';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import Image from 'next/image';
@@ -9,6 +10,13 @@ import { notFound, useSearchParams, useRouter, usePathname, useParams, useSelect
 import { Star } from 'lucide-react';
 import ProductModal from '@/components/product-modal';
 import Link from 'next/link';
+
+export async function generateStaticParams() {
+    const allCategories = getAllCategories(categoriesData);
+    return allCategories.map((category) => ({
+        slug: category.id,
+    }));
+}
 
 export default function CategoryPage() {
   const params = useParams();
