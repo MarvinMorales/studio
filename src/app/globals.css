@@ -24,6 +24,11 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
+
+    --brand-dark: 251 14% 16%;
+    --brand-red: 0 100% 62%;
+    --brand-red-dark: 0 80% 55%;
+    --brand-dark-light: 252 14% 27%;
   }
   .dark {
     --background: 222.2 84% 4.9%;

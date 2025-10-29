@@ -62,6 +62,12 @@ export default {
           '4': 'hsl(var(--chart-4))',
           '5': 'hsl(var(--chart-5))',
         },
+        brand: {
+          dark: 'hsl(var(--brand-dark))',
+          red: 'hsl(var(--brand-red))',
+          'red-dark': 'hsl(var(--brand-red-dark))',
+          'dark-light': 'hsl(var(--brand-dark-light))'
+        }
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -86,8 +92,8 @@ export default {
           },
         },
         scroll: {
-          '0%': { transform: 'translateX(0)' },
-          '100%': { transform: 'translateX(-50%)' },
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
       animation: {
