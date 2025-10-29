@@ -2,12 +2,9 @@
 "use client";
 
 import { useEffect, useState, Suspense } from 'react';
-import { useParams } from 'next/navigation';
+import { useParams, notFound } from 'next/navigation';
 import { getCategoryBySlug, getProductsForCategoryAndSubcategories, Category, SubCategory, Product } from '@/lib/data';
 import CategoryPageClient from '@/components/category-page-client';
-import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-
 
 interface CategoryPageProps {
     params: {
@@ -35,7 +32,6 @@ function CategoryPageContent({ params }: CategoryPageProps) {
           }
           
           setCategory(foundCategory);
-          document.title = `${foundCategory.name} | One Security`;
 
           const foundProducts = await getProductsForCategoryAndSubcategories(foundCategory);
           setProducts(foundProducts);
@@ -55,8 +51,15 @@ function CategoryPageContent({ params }: CategoryPageProps) {
     loadData();
   }, [slug]);
 
+  useEffect(() => {
+    if (category) {
+        document.title = `${category.name} | One Security`;
+    }
+  }, [category]);
+
+
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="flex justify-center items-center h-screen">Loading...</div>;
   }
 
   if (!category) {
@@ -71,7 +74,7 @@ function CategoryPageContent({ params }: CategoryPageProps) {
 
 export default function CategoryPage({ params }: CategoryPageProps) {
     return (
-        <Suspense fallback={<div>Loading Page...</div>}>
+        <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading Page...</div>}>
             <CategoryPageContent params={params} />
         </Suspense>
     )
