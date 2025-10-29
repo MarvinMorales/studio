@@ -1,16 +1,44 @@
+
+'use client'
+
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 import Link from "next/link";
-import { categoriesData, websiteData } from "@/lib/data";
-
-const categories = categoriesData;
-const { fastCategoriesSection } = websiteData;
+import { getCategoriesData, getWebsiteData, Category } from "@/lib/data";
 
 export default function Categories() {
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [title, setTitle] = useState('');
+
+  useEffect(() => {
+    async function loadData() {
+        const [categories, webData] = await Promise.all([
+            getCategoriesData(),
+            getWebsiteData()
+        ]);
+        setCategories(categories);
+        setTitle(webData.fastCategoriesSection.title);
+    }
+    loadData();
+  }, []);
+
+  if (categories.length === 0) {
+    return (
+      <section id="categories" className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline text-foreground">Cargando...</h2>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="categories" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold font-headline text-foreground">{fastCategoriesSection.title}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-headline text-foreground">{title}</h2>
           <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">
             Explora nuestra amplia gama de soluciones tecnológicas para retail.
           </p>

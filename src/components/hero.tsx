@@ -6,29 +6,45 @@ import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { websiteData } from '@/lib/data';
+import { getWebsiteData, HeroSlide } from '@/lib/data';
 import Image from 'next/image';
-
-const { slides } = websiteData.heroSection;
 
 export default function Hero() {
   const isMobile = useIsMobile();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [slides, setSlides] = useState<HeroSlide[]>([]);
+
+  useEffect(() => {
+    async function loadData() {
+        const webData = await getWebsiteData();
+        setSlides(webData.heroSection.slides);
+    }
+    loadData();
+  }, []);
 
   const goToSlide = useCallback((index: number) => {
     setCurrentSlide(index);
   }, []);
 
   const nextSlide = useCallback(() => {
+    if (slides.length === 0) return;
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   }, [slides.length]);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 6000);
-    return () => clearInterval(interval);
-  }, [nextSlide]);
+    if (slides.length > 0) {
+        const interval = setInterval(nextSlide, 6000);
+        return () => clearInterval(interval);
+    }
+  }, [nextSlide, slides.length]);
 
-  if (!slides || slides.length === 0) return null;
+  if (!slides || slides.length === 0) {
+    return (
+        <section className="relative w-full h-[70vh] overflow-hidden bg-gray-200 flex items-center justify-center">
+            <div>Loading slides...</div>
+        </section>
+    );
+  }
 
   return (
     <section className="relative w-full h-[70vh] overflow-hidden">

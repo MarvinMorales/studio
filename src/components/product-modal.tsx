@@ -1,12 +1,14 @@
+
 "use client";
 
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 import { Dialog, DialogContent } from '@/components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Button } from "./ui/button";
 import { Star, MessageCircle } from "lucide-react";
 import type { Product } from "@/lib/data";
-import { websiteData } from "@/lib/data";
+import { getWebsiteData } from "@/lib/data";
 
 interface ProductModalProps {
   product: Product;
@@ -14,7 +16,16 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
-  const whatsappNumber = websiteData.businessInformation.whatsappNumber;
+  const [whatsappNumber, setWhatsappNumber] = useState('');
+
+  useEffect(() => {
+    async function loadInfo() {
+        const webData = await getWebsiteData();
+        setWhatsappNumber(webData.businessInformation.whatsappNumber);
+    }
+    loadInfo();
+  }, []);
+
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hola, estoy interesado en el producto: ${product.name}`)}`;
 
   return (
@@ -55,7 +66,7 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             <p className="text-base text-muted-foreground flex-1 mb-6" style={{ whiteSpace: 'pre-line' }}>
               {product.description}
             </p>
-            <Button asChild size="lg">
+            <Button asChild size="lg" disabled={!whatsappNumber}>
                 <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="mr-2 h-5 w-5" />
                     Solicitar Información

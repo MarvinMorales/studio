@@ -1,13 +1,52 @@
+
+'use client'
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Facebook, Instagram, MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
-import { websiteData, categoriesData } from '@/lib/data';
+import { getWebsiteData, getCategoriesData, Category } from '@/lib/data';
 import Image from 'next/image';
 
-export default function Footer() {
-  const { businessInformation, header } = websiteData;
+type BusinessInfo = {
+    address: string;
+    whatsappNumber: string;
+    contactEmail: string;
+    socialMedia: {
+        facebook: string;
+        instagram: string;
+    }
+};
 
-  if (!businessInformation) {
-    return null;
+type HeaderData = {
+    logo: string;
+};
+
+export default function Footer() {
+  const [businessInformation, setBusinessInformation] = useState<BusinessInfo | null>(null);
+  const [headerData, setHeaderData] = useState<HeaderData | null>(null);
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    async function loadData() {
+        const [webData, cats] = await Promise.all([
+            getWebsiteData(),
+            getCategoriesData()
+        ]);
+        setBusinessInformation(webData.businessInformation as any);
+        setHeaderData(webData.header as any);
+        setCategories(cats);
+    }
+    loadData();
+  }, []);
+
+  if (!businessInformation || !headerData) {
+    return (
+        <footer className="bg-gray-800 text-gray-300">
+          <div className="container mx-auto px-4 md:px-6 py-12 text-center">
+            Cargando...
+          </div>
+        </footer>
+    );
   }
 
   const quickLinks = [
@@ -25,7 +64,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="inline-block mb-4">
               <Image 
-                src={header.logo} 
+                src={headerData.logo} 
                 alt="One Security Logo" 
                 width={150} 
                 height={40} 
@@ -62,7 +101,7 @@ export default function Footer() {
           <div>
             <h4 className="font-headline font-semibold text-white mb-4">Categorías</h4>
             <ul className="space-y-2">
-              {categoriesData.map(category => (
+              {categories.map(category => (
                 <li key={category.id}>
                   <Link href={`/category/${category.id}`} className="flex items-center text-sm hover:text-white transition-colors">
                     <ArrowRight className="h-3 w-3 mr-2" />

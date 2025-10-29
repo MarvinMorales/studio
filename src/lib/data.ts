@@ -1,4 +1,5 @@
-import data from './data.json';
+
+'use client'
 
 export type MenuItem = {
   id: string;
@@ -91,12 +92,98 @@ export type SuccessCase = {
     description: string;
 };
 
-export const websiteData = data.website;
-export const categoriesData: Category[] = data.categories;
-export const productsData: Product[] = data.allProducts;
-export const instagramPostsData: InstagramPost[] = data.instagramLatestPosts;
-export const clientsData: Client[] = data.ourClients;
-export const successCasesData: SuccessCase[] = data.successCases;
+type AppData = {
+    website: {
+        header: {
+            logo: string;
+            menu: MenuItem[];
+        };
+        heroSection: {
+            showThisSection: boolean;
+            slides: HeroSlide[];
+        };
+        videoSection: {
+            showThisSection: boolean;
+            videoId: string;
+            title: string;
+            description: string;
+        };
+        fastCategoriesSection: {
+            showThisSection: boolean;
+            title: string;
+        };
+        successCasesSection: {
+            showThisSection: boolean;
+            title: string;
+            subtitle: string;
+        };
+        businessInformation: {
+            websiteDomain: string;
+            whatsappNumber: string;
+            contactEmail: string;
+            address: string;
+            businessHours: string;
+            socialMedia: {
+                facebook: string;
+                instagram: string;
+                youtube: string;
+            };
+        };
+    };
+    categories: Category[];
+    allProducts: Product[];
+    instagramLatestPosts: InstagramPost[];
+    ourClients: Client[];
+    successCases: SuccessCase[];
+};
+
+
+let cache: AppData | null = null;
+
+async function fetchData(): Promise<AppData> {
+    if (cache) {
+        return cache;
+    }
+    const res = await fetch('/data.json');
+    if (!res.ok) {
+        throw new Error('Failed to fetch data');
+    }
+    const data: AppData = await res.json();
+    cache = data;
+    return data;
+}
+
+
+export async function getWebsiteData() {
+    const data = await fetchData();
+    return data.website;
+}
+
+export async function getCategoriesData() {
+    const data = await fetchData();
+    return data.categories;
+}
+
+export async function getProductsData() {
+    const data = await fetchData();
+    return data.allProducts;
+}
+
+export async function getInstagramPostsData() {
+    const data = await fetchData();
+    return data.instagramLatestPosts;
+}
+
+export async function getClientsData() {
+    const data = await fetchData();
+    return data.ourClients;
+}
+
+export async function getSuccessCasesData() {
+    const data = await fetchData();
+    return data.successCases;
+}
+
 
 function findCategoryRecursive(categories: (Category | SubCategory)[], slug: string): Category | SubCategory | null {
   for (const category of categories) {
@@ -114,30 +201,31 @@ function findCategoryRecursive(categories: (Category | SubCategory)[], slug: str
   return null;
 }
 
-export function getCategoryBySlug(slug: string) {
-  return findCategoryRecursive(categoriesData, slug);
+export async function getCategoryBySlug(slug: string) {
+  const categories = await getCategoriesData();
+  return findCategoryRecursive(categories, slug);
 }
 
-export function getProductsByCategoryId(categoryId: string) {
-    return productsData.filter(product => product.category === categoryId);
+export async function getProductsByCategoryId(categoryId: string) {
+    const products = await getProductsData();
+    return products.filter(product => product.category === categoryId);
 }
 
-function getProductsRecursive(category: Category | SubCategory): Product[] {
-  let products = getProductsByCategoryId(category.id);
+async function getProductsRecursive(category: Category | SubCategory): Promise<Product[]> {
+  let products = await getProductsByCategoryId(category.id);
   if (category.subCategory) {
     for (const sub of category.subCategory) {
-      products = products.concat(getProductsRecursive(sub));
+      const subProducts = await getProductsRecursive(sub);
+      products = products.concat(subProducts);
     }
   }
   return products;
 }
 
-export function getProductsForCategoryAndSubcategories(category: Category | SubCategory): Product[] {
+export async function getProductsForCategoryAndSubcategories(category: Category | SubCategory): Promise<Product[]> {
     return getProductsRecursive(category);
 }
 
-
-export const allProducts: Product[] = data.allProducts;
 
 export function getAllCategories(categories: (Category | SubCategory)[]): (Category | SubCategory)[] {
     let all: (Category | SubCategory)[] = [];
@@ -150,10 +238,12 @@ export function getAllCategories(categories: (Category | SubCategory)[]): (Categ
     return all;
 }
 
-export function searchProductsAndCategories(query: string) {
+export async function searchProductsAndCategories(query: string) {
     const lowerCaseQuery = query.toLowerCase();
-  
-    const allCategoriesList = getAllCategories(categoriesData);
+    
+    const allProducts = await getProductsData();
+    const allCategories = await getCategoriesData();
+    const allCategoriesList = getAllCategories(allCategories);
 
     const filteredCategories = allCategoriesList.filter(category =>
       category.name.toLowerCase().includes(lowerCaseQuery)
@@ -169,4 +259,4 @@ export function searchProductsAndCategories(query: string) {
       categories: filteredCategories,
       products: filteredProducts,
     };
-  }
+}

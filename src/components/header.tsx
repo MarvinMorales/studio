@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -7,7 +8,7 @@ import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { websiteData, categoriesData, Category, SubCategory } from "@/lib/data";
+import { getWebsiteData, getCategoriesData, Category, SubCategory } from "@/lib/data";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -30,8 +31,11 @@ import {
 } from "@/components/ui/collapsible";
 import SearchBar from "./search-bar";
 
-const { header: headerData } = websiteData;
-const navLinks = headerData.menu;
+type NavLink = {
+    id: string;
+    name: string;
+    redirects: string;
+};
 
 const SubMenu = ({
   subCategories,
@@ -150,10 +154,38 @@ const renderDesktopSubMenu = (items: (Category | SubCategory)[]) => {
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [logo, setLogo] = useState('');
+  const [navLinks, setNavLinks] = useState<NavLink[]>([]);
+  const [categoriesData, setCategoriesData] = useState<Category[]>([]);
+
+  useEffect(() => {
+    async function loadData() {
+        const [webData, cats] = await Promise.all([
+            getWebsiteData(),
+            getCategoriesData()
+        ]);
+        setLogo(webData.header.logo);
+        setNavLinks(webData.header.menu);
+        setCategoriesData(cats);
+    }
+    loadData();
+  }, []);
 
   const handleMobileLinkClick = () => {
     setMobileMenuOpen(false);
   };
+  
+  if (!logo) {
+    return (
+         <header
+            className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-card shadow-md"
+        >
+        <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
+            <div>Loading...</div>
+        </div>
+        </header>
+    )
+  }
 
   return (
     <header
@@ -162,7 +194,7 @@ export default function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src={headerData.logo}
+            src={logo}
             alt="Logo"
             width={150}
             height={40}
@@ -177,7 +209,7 @@ export default function Header() {
                   return (
                     <NavigationMenuItem key={link.id}>
                       <NavigationMenuTrigger>{link.name}</NavigationMenuTrigger>
-                      {renderDesktopSubMenu(categoriesData)}
+                      {categoriesData.length > 0 && renderDesktopSubMenu(categoriesData)}
                     </NavigationMenuItem>
                   );
                 }
@@ -213,7 +245,7 @@ export default function Header() {
                     onClick={handleMobileLinkClick}
                   >
                     <Image
-                      src={headerData.logo}
+                      src={logo}
                       alt="Logo"
                       width={120}
                       height={30}

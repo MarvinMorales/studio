@@ -1,10 +1,10 @@
+
 import { MetadataRoute } from 'next'
-import { getAllCategories, categoriesData, websiteData } from '@/lib/data';
 
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = websiteData.businessInformation.websiteDomain;
+  const baseUrl = "https://www.onesecurity.com.ec/";
 
   const staticRoutes: MetadataRoute.Sitemap = [
     {
@@ -33,16 +33,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ];
 
-  const allCategories = getAllCategories(categoriesData);
-
-  const categoryRoutes = allCategories.map((category) => {
-    return {
-        url: `${baseUrl}/category/${category.id}`,
-        lastModified: new Date(),
-        changeFrequency: 'weekly' as 'weekly',
-        priority: 0.9,
-    }
-  });
+  // Category routes are now dynamic and cannot be included in a static sitemap
+  // generated at build time. This should be generated on the server or through a separate script.
+  const categoryRoutes: MetadataRoute.Sitemap = [];
 
 
   return [...staticRoutes, ...categoryRoutes];

@@ -1,8 +1,9 @@
+
 "use client";
 
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { clientsData } from "@/lib/data";
+import { getClientsData, Client } from "@/lib/data";
 import {
   Tooltip,
   TooltipContent,
@@ -12,12 +13,20 @@ import {
 import { cn } from "@/lib/utils";
 
 export default function Clients() {
-  const clientImages = clientsData;
+  const [clientImages, setClientImages] = useState<Client[]>([]);
   const [paused, setPaused] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(false);
   
   const containerRef = useRef<HTMLDivElement>(null);
   const tickerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    async function loadData() {
+        const data = await getClientsData();
+        setClientImages(data);
+    }
+    loadData();
+  }, []);
 
   useEffect(() => {
     const calculateAnimation = () => {
@@ -33,7 +42,9 @@ export default function Clients() {
       }
     };
 
-    calculateAnimation();
+    if (clientImages.length > 0) {
+      calculateAnimation();
+    }
     
     window.addEventListener('resize', calculateAnimation);
     return () => window.removeEventListener('resize', calculateAnimation);
@@ -42,6 +53,18 @@ export default function Clients() {
 
   // Duplicate clients for infinite effect only if animation is needed
   const tickerClients = shouldAnimate ? [...clientImages, ...clientImages] : clientImages;
+
+  if (clientImages.length === 0) {
+    return (
+        <section className="bg-primary py-10">
+            <div className="container mx-auto px-4 md:px-6">
+                <h2 className="text-primary-foreground text-2xl font-bold text-center mb-6">
+                    Cargando clientes...
+                </h2>
+            </div>
+        </section>
+    )
+  }
 
   return (
     <section className="bg-primary py-10">

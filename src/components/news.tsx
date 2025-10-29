@@ -1,11 +1,36 @@
+
+'use client'
+
+import { useState, useEffect } from 'react';
 import Image from "next/image";
 import { Instagram } from "lucide-react";
-import { instagramPostsData } from "@/lib/data";
+import { getInstagramPostsData, InstagramPost } from "@/lib/data";
 import { Button } from "./ui/button";
 
-const instagramPosts = instagramPostsData;
 
 export default function News() {
+  const [instagramPosts, setInstagramPosts] = useState<InstagramPost[]>([]);
+
+  useEffect(() => {
+    async function loadData() {
+        const data = await getInstagramPostsData();
+        setInstagramPosts(data);
+    }
+    loadData();
+  }, []);
+
+  if (instagramPosts.length === 0) {
+    return (
+      <section id="news" className="py-16 md:py-24 bg-background">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold font-headline">Cargando Novedades...</h2>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="news" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 md:px-6">

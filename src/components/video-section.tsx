@@ -1,12 +1,28 @@
+
 "use client";
+import { useState, useEffect } from 'react';
+import { getWebsiteData } from "@/lib/data";
 
-import { websiteData } from "@/lib/data";
 
-const { videoSection } = websiteData;
+type VideoSectionData = {
+    showThisSection: boolean;
+    videoId: string;
+    title: string;
+    description: string;
+};
 
 export default function VideoSection() {
+    const [videoSection, setVideoSection] = useState<VideoSectionData | null>(null);
 
-  if (!videoSection.showThisSection) {
+    useEffect(() => {
+        async function loadData() {
+            const webData = await getWebsiteData();
+            setVideoSection(webData.videoSection as any);
+        }
+        loadData();
+    }, []);
+
+  if (!videoSection || !videoSection.showThisSection) {
     return null;
   }
 

@@ -1,6 +1,7 @@
 
 "use client";
 
+import { useState, useEffect } from 'react';
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -19,7 +20,13 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, MapPin, Phone, Building } from "lucide-react";
-import { websiteData } from "@/lib/data";
+import { getWebsiteData } from "@/lib/data";
+
+type BusinessInfo = {
+    address: string;
+    contactEmail: string;
+    whatsappNumber: string;
+};
 
 const formSchema = z.object({
   firstName: z.string().min(2, "El nombre debe tener al menos 2 caracteres."),
@@ -32,7 +39,15 @@ const formSchema = z.object({
 type FormValues = z.infer<typeof formSchema>;
 
 export default function ContactPage() {
-  const { businessInformation } = websiteData;
+  const [businessInformation, setBusinessInformation] = useState<BusinessInfo | null>(null);
+
+  useEffect(() => {
+    async function loadData() {
+        const webData = await getWebsiteData();
+        setBusinessInformation(webData.businessInformation as any);
+    }
+    loadData();
+  }, []);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -46,6 +61,7 @@ export default function ContactPage() {
   });
 
   function onSubmit(values: FormValues) {
+    if (!businessInformation) return;
     const subject = `Nuevo mensaje de contacto de ${values.firstName} ${values.lastName}`;
     const body = `
       Nombre: ${values.firstName}
@@ -58,6 +74,10 @@ export default function ContactPage() {
     `;
     const mailtoLink = `mailto:${businessInformation.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailtoLink;
+  }
+  
+  if (!businessInformation) {
+    return <div className="flex justify-center items-center h-screen">Loading...</div>
   }
 
   return (
@@ -198,5 +218,3 @@ export default function ContactPage() {
     </div>
   );
 }
-
-    
