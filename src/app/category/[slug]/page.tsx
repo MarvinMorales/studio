@@ -109,7 +109,7 @@ export default function CategoryPage() {
                     {category.description && <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-lg">{category.description}</p>}
                 </div>
                 
-                {subCategories && subCategories.length > 0 && products.length === 0 ? renderSubCategories(subCategories) : (
+                {subCategories && subCategories.length > 0 ? renderSubCategories(subCategories) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {products.map((product) => (
                         <div 
