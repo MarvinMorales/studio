@@ -15,12 +15,12 @@ export default function Categories() {
             Explora nuestra amplia gama de soluciones tecnológicas para retail.
           </p>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-8 gap-4">
+        <div className="flex gap-4">
           {categories.map((category) => (
             <Link
               key={category.id}
               href={`/category/${category.id}`}
-              className="group relative flex-shrink-0 w-full h-80 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
+              className="group relative flex-1 h-80 rounded-lg overflow-hidden shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl"
             >
               <Image
                   src={category.coverImage}
