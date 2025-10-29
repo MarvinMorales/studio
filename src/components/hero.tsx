@@ -38,27 +38,28 @@ export default function Hero() {
                   sizes="100vw"
                 />
                 <div className="absolute inset-0 bg-black/50" />
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
+                  {slide.showInfo && (
+                    <div className="max-w-3xl animate-in fade-in-5 duration-1000">
+                      <h1 className="text-4xl md:text-6xl font-bold font-headline drop-shadow-lg leading-tight">
+                        {slide.title}
+                      </h1>
+                      <p className="mt-4 text-lg md:text-xl drop-shadow-md">
+                        {slide.subtitle}
+                      </p>
+                      <Button size="lg" className="mt-8" asChild>
+                          <Link href={slide.link || "#"}>
+                              {slide.cta || 'Descubre Nuestros Productos'}
+                          </Link>
+                      </Button>
+                    </div>
+                  )}
+                </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4">
-          {heroImages[0]?.showInfo && (
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-bold font-headline drop-shadow-lg leading-tight">
-                {heroImages[0].title || 'Soluciones Integrales de Seguridad Tecnológica'}
-              </h1>
-              <p className="mt-4 text-lg md:text-xl drop-shadow-md">
-                {heroImages[0].subtitle || 'Protegemos lo que más importa con tecnología de vanguardia.'}
-              </p>
-              <Button size="lg" className="mt-8" asChild>
-                  <Link href={heroImages[0].link || "#"}>
-                      {heroImages[0].cta || 'Descubre Nuestros Productos'}
-                  </Link>
-              </Button>
-            </div>
-          )}
-        </div>
+        
         {canLoop && (
           <>
             <CarouselPrevious className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white bg-white/20 hover:bg-white/30 border-white/50" />
