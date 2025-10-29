@@ -65,6 +65,8 @@ export default function TermsAndConditionsPage() {
     }
   ];
 
+  const allSectionIds = sections.map(section => section.id);
+
   return (
     <div className="flex flex-col min-h-screen bg-secondary/40">
       <Header />
@@ -86,7 +88,7 @@ export default function TermsAndConditionsPage() {
               </p>
             </div>
 
-            <Accordion type="single" collapsible className="w-full space-y-4">
+            <Accordion type="multiple" defaultValue={allSectionIds} className="w-full space-y-4">
               {sections.map((section, index) => (
                 <AccordionItem key={section.id} value={section.id} className="bg-card shadow-sm rounded-lg">
                   <AccordionTrigger className="text-lg font-semibold px-6 py-4 hover:no-underline">
