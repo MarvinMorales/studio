@@ -34,7 +34,7 @@ export default function Clients() {
             <div className="ticker-fade-right" />
 
             <div
-            className={`flex w-max gap-6 animate-ticker ${paused ? "paused" : ""}`}
+            className={`flex w-max gap-6 animate-scroll ${paused ? "paused" : ""}`}
             >
             {tickerClients.map((elem, i) => (
                 <TooltipProvider key={i}>
