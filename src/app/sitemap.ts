@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 import { getAllCategories, categoriesData, websiteData } from '@/lib/data';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = websiteData.businessInformation.websiteDomain;
 
