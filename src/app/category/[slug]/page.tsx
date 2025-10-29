@@ -2,6 +2,7 @@
 import { getAllCategories, getCategoryBySlug, getProductsForCategoryAndSubcategories, categoriesData, Category, SubCategory, Product } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import CategoryPageClient from '@/components/category-page-client';
+import { Suspense } from 'react';
 
 export async function generateStaticParams() {
     const allCategories = getAllCategories(categoriesData);
@@ -28,5 +29,9 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   const products = getProductsForCategoryAndSubcategories(category);
   const subCategories = 'subCategory' in category && category.subCategory ? category.subCategory : [];
 
-  return <CategoryPageClient category={category} products={products} subCategories={subCategories} />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CategoryPageClient category={category} products={products} subCategories={subCategories} />
+    </Suspense>
+  );
 }
